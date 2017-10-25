@@ -78,13 +78,10 @@ public class Chatbot
 	{
 		boolean validLength = false;
 		
-		if (input != null)
-		{
-			if (input.length() > 2)
+			if (input != null && input.length() > 2)
 			{
 				validLength = true;
 			}
-		}
 		
 		return validLength;
 	}
