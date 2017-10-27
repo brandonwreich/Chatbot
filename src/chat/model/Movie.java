@@ -61,7 +61,7 @@ public class Movie
 
 	public void setTitle(String title)
 	{
-		
+		this.title = "";
 	}
 
 	public void setGenre(String genre)

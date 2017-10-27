@@ -3,6 +3,8 @@ package chat.model;
 import java.util.List;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import chat.model.Movie;
+import java.lang.String;
 
 public class Chatbot
 {
@@ -20,21 +22,23 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
-		this.cuteAnimalMemes = null;
-		this.currentTime = null;
-		this.questions = null;
+		this.cuteAnimalMemes = new ArrayList<String>();
+		this.questions = new String [10];
 		this.username = username;
 		this.content = null;
 		this.intro = null;
 		this.currentTime = null;
-		this.topics = null;
+		this.topics = new String [7];
 		this.verbs = new String [4];
-		this.followUps = null;
+		this.followUps = new String [5];
 		
 		buildVerbs();
+		buildMovieList();
 		buildShoppingList();
+		buildQuestions();
+		buildCuteAnimals();
 	}
 
 	private void buildVerbs()
@@ -47,26 +51,56 @@ public class Chatbot
 	
 	private void buildMovieList()
 	{
-
+		Movie spiderman = new Movie ("Spiderman");
+		Movie hiddenFigures = new Movie ("Hidden Figures");
+		Movie happyGilmore = new Movie ("Happy Gilmore");
+		Movie nachoLibre = new Movie ("Nacho Libre");
+		Movie youAgain = new Movie ("You Again");
+		Movie coolRunnings = new Movie ("Cool Runnings");
+		Movie sevenBridesForSevenBrothers = new Movie ("Seven Brides for Seven Brothers");
+		Movie starWars = new Movie ("Star Wars");
+		Movie foreverStrong = new Movie ("Forever Strong);");
+		
+		movieList.add(spiderman);
+		movieList.add(hiddenFigures);
+		movieList.add(happyGilmore);
+		movieList.add(nachoLibre);
+		movieList.add(youAgain);
+		movieList.add(coolRunnings);
+		movieList.add(sevenBridesForSevenBrothers);
+		movieList.add(starWars);
+		movieList.add(foreverStrong);
 	}
 	
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
 		shoppingList.add("veggies");
-		shoppingList.add("protiens");
+		shoppingList.add("protein");
 		shoppingList.add("fruits");
 		shoppingList.add("donuts");
 	}
 	
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("pupper");
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("kittie");
+		cuteAnimalMemes.add("floofer");
 	}
 	
 	private void buildQuestions()
 	{
-		
+		questions [0] = "What is your  name?";
+		questions [1] = "What do you like to do?";
+		questions [2] = "What kind of movies do you like?";
+		questions [3] = "Do you like to shop?";
+		questions [4] = "What do you like to shop for?";
+		questions [5] = "What is your favorite color?";
+		questions [6] = "What is your favorite movie?";
+		questions [7] = "How old are you?";
+		questions [8] = "What are the color of your eyes?";
+		questions [9] = "How big are your feet?";
 	}
 	
 	public String processConversation(String input)
@@ -103,17 +137,45 @@ public class Chatbot
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean validInput = false;
+		
+		if(input.contains("floofer") || 
+				input.contains("pupper") || 
+				input.contains("kittie") || 
+				input.contains("otter"))
+		{
+			validInput = true;
+		}
+		return validInput;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		boolean validShoppingItem = false;
+			
+		if (shoppingItem.contains("snacks") || 
+				shoppingItem.contains("protein") || 
+				shoppingItem.contains("fruits") ||
+				shoppingItem.contains("veggies") ||
+				shoppingItem.contains("donuts"))
+		{
+			validShoppingItem = true;
+		}
+		
+		return validShoppingItem;
 	}
 	
 	public boolean movieTitleChecker(String title)
 	{
-		return false;
+		
+		boolean validTitle = false;
+			
+//		if()
+//		{
+//			validTitle = true;
+//		}
+		
+		return validTitle;
 	}
 	
 	public boolean movieGenreChecker(String genre)
@@ -148,7 +210,7 @@ public class Chatbot
 
 	public String [] getQuestions()
 	{
-		return null;
+		return questions;
 	}
 	
 	public String[] getVerbs()
