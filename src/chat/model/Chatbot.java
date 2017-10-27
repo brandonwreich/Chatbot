@@ -37,8 +37,8 @@ public class Chatbot
 		buildVerbs();
 		buildMovieList();
 		buildShoppingList();
-		buildQuestions();
 		buildCuteAnimals();
+		buildQuestions();
 	}
 
 	private void buildVerbs()
@@ -59,7 +59,9 @@ public class Chatbot
 		Movie coolRunnings = new Movie ("Cool Runnings");
 		Movie sevenBridesForSevenBrothers = new Movie ("Seven Brides for Seven Brothers");
 		Movie starWars = new Movie ("Star Wars");
-		Movie foreverStrong = new Movie ("Forever Strong);");
+		Movie foreverStrong = new Movie ("Forever Strong");
+		Movie newsies = new Movie ("Newsies");
+		 
 		
 		movieList.add(spiderman);
 		movieList.add(hiddenFigures);
@@ -70,6 +72,7 @@ public class Chatbot
 		movieList.add(sevenBridesForSevenBrothers);
 		movieList.add(starWars);
 		movieList.add(foreverStrong);
+		movieList.add(newsies);
 	}
 	
 	private void buildShoppingList()
@@ -139,13 +142,11 @@ public class Chatbot
 	{
 		boolean validInput = false;
 		
-		if(input.contains("floofer") || 
-				input.contains("pupper") || 
-				input.contains("kittie") || 
-				input.contains("otter"))
+		if(input != null && cuteAnimalMemes.contains("input"))
 		{
 			validInput = true;
 		}
+		
 		return validInput;
 	}
 	
@@ -153,11 +154,7 @@ public class Chatbot
 	{
 		boolean validShoppingItem = false;
 			
-		if (shoppingItem.contains("snacks") || 
-				shoppingItem.contains("protein") || 
-				shoppingItem.contains("fruits") ||
-				shoppingItem.contains("veggies") ||
-				shoppingItem.contains("donuts"))
+		if(shoppingItem != null && shoppingList.contains(shoppingItem))
 		{
 			validShoppingItem = true;
 		}
@@ -170,11 +167,11 @@ public class Chatbot
 		
 		boolean validTitle = false;
 			
-//		if()
+//		if (movieList.contains(title))
 //		{
 //			validTitle = true;
 //		}
-		
+//		
 		return validTitle;
 	}
 	
