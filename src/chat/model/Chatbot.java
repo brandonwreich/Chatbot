@@ -39,6 +39,7 @@ public class Chatbot
 		buildShoppingList();
 		buildCuteAnimals();
 		buildQuestions();
+		buildTopics();
 	}
 
 	private void buildVerbs()
@@ -61,6 +62,26 @@ public class Chatbot
 		Movie starWars = new Movie ("Star Wars");
 		Movie foreverStrong = new Movie ("Forever Strong");
 		Movie newsies = new Movie ("Newsies");
+		Movie tangeled = new Movie ("Tangeled");
+		Movie whileYouWereSleeping = new Movie ("While you were Sleeping");
+		Movie becomingJane = new Movie ("Becoming Jane");
+		Movie findingNeverland = new Movie ("Finding Neverland");
+		Movie aladdin = new Movie ("Aladdin");
+		Movie waitress = new Movie ("Waitress");
+		Movie beautyAndTheBeast = new Movie ("Beauty and the Beast");
+		Movie sleepingBeauty = new Movie ("Sleeping Beauty");
+		Movie barbieAndTheDiamondCastle = new Movie ("Barbie and the Diamond Castle");
+		Movie mrsDoubtFire = new Movie ("Mrs. Doubtfire");
+		Movie flubber = new Movie ("Flubber");
+		Movie patchAdams = new Movie ("Patch Adams");
+		Movie whiteChristmas = new Movie ("White Christmas");
+		Movie christmasStory	= new Movie ("Christmas Story");
+		Movie cheaperByTheDozen = new Movie ("Cheaper by the Dozen");
+		Movie sharkBoyAndLavaGirl = new Movie ("Shark Boy and Lava Girl");
+		Movie bringItOn = new Movie ("Bring it on");
+		Movie heathers = new Movie ("Heathers");
+		Movie whiteChicks = new Movie ("White Chicks");
+		Movie legallyBlonde = new Movie ("Legally Blonde");
 		 
 		
 		movieList.add(spiderman);
@@ -73,6 +94,26 @@ public class Chatbot
 		movieList.add(starWars);
 		movieList.add(foreverStrong);
 		movieList.add(newsies);
+		movieList.add(tangeled);
+		movieList.add(whileYouWereSleeping);
+		movieList.add(becomingJane);
+		movieList.add(findingNeverland);
+		movieList.add(aladdin);
+		movieList.add(waitress);
+		movieList.add(beautyAndTheBeast);
+		movieList.add(sleepingBeauty);
+		movieList.add(barbieAndTheDiamondCastle);
+		movieList.add(mrsDoubtFire);
+		movieList.add(flubber);
+		movieList.add(patchAdams);
+		movieList.add(whiteChristmas);
+		movieList.add(christmasStory);
+		movieList.add(cheaperByTheDozen);
+		movieList.add(sharkBoyAndLavaGirl);
+		movieList.add(bringItOn);
+		movieList.add(heathers);
+		movieList.add(whiteChicks);
+		movieList.add(legallyBlonde);
 	}
 	
 	private void buildShoppingList()
@@ -106,21 +147,51 @@ public class Chatbot
 		questions [9] = "How big are your feet?";
 	}
 	
+	private void buildTopics()
+	{
+		topics [0] = " people";
+		topics [1] = " breakfast foods";
+		topics [2] = " smell of grass being cut.";
+		topics [3] = " pinapple juice";
+		topics [4] = " different types of bread.";
+		topics [5] = " waffles";
+		topics [6] = " grilled cheese sandwiches";
+	}
+	
 	public String processConversation(String input)
 	{
-		return null;
+		String chatbotResponse = "";
+		chatbotResponse += "You said: " + "\n" + input + "\n";
+		
+		chatbotResponse += buildChatbotResponse();
+		
+		return chatbotResponse;
+	}
+		
+	private String buildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int) (Math.random() * verbs.length);
+		
+		response += verbs[random];
+		
+		random = (int) (Math.random() * topics.length);
+		response += "" + topics[random] + ".\n";
+		
+		random = (int) (Math.random() * questions.length);
+		response += questions[random];
+				
+		return response;
 	}
 	
 	public boolean lengthChecker(String input)
 	{
-		boolean validLength = false;
-		
-			if (input != null && input.length() > 2)
+			if (input != null && input.length() >= 2)
 			{
-				validLength = true;
+				return true;
 			}
 		
-		return validLength;
+		return false;
 	}
 	
 	public boolean htmlTagChecker(String input)
@@ -130,6 +201,11 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
+		if(input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@")) 
+		{
+			return true;
+		}
+		
 		return false;
 	}
 	
@@ -140,39 +216,38 @@ public class Chatbot
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		boolean validInput = false;
-		
 		if(input != null && cuteAnimalMemes.contains("input"))
 		{
-			validInput = true;
+			return true;
 		}
 		
-		return validInput;
+		return false;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem)
-	{
-		boolean validShoppingItem = false;
-			
-		if(shoppingItem != null && shoppingList.contains(shoppingItem))
+	{	
+		
+		if(shoppingItem.contains("snacks") || 
+				shoppingItem.contains("veggies") || 
+				shoppingItem.contains("protein") || 
+				shoppingItem.contains("fruits") || 
+				shoppingItem.contains("donuts"))
 		{
-			validShoppingItem = true;
+			return true;
 		}
 		
-		return validShoppingItem;
+		return false;
 	}
 	
 	public boolean movieTitleChecker(String title)
 	{
 		
-		boolean validTitle = false;
-			
-//		if (movieList.contains(title))
-//		{
-//			validTitle = true;
-//		}
-//		
-		return validTitle;
+		if (title != null && movieList.contains(title))
+		{
+			return true;
+		}
+	
+		return false;
 	}
 	
 	public boolean movieGenreChecker(String genre)
@@ -182,6 +257,11 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if(exitString != null && exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -253,5 +333,12 @@ public class Chatbot
 	public void setContent(String content)
 	{
 		this.content = content;
+	}
+	
+	public String toString()
+	{
+		String description = "";
+		
+		return description;
 	}
 }
