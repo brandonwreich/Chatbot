@@ -117,6 +117,13 @@ public class Chatbot
 		shoppingList.add("protein");
 		shoppingList.add("fruits");
 		shoppingList.add("donuts");
+		shoppingList.add("eggs");
+		shoppingList.add("hot peppers");
+		shoppingList.add("onions");
+		shoppingList.add("bagel");
+		shoppingList.add("crunchy peanut butter");
+		shoppingList.add("hot sauce");
+		shoppingList.add("juice");
 	}
 	
 	private void buildCuteAnimals()
@@ -173,8 +180,15 @@ public class Chatbot
 		response += "" + topics[random] + ".\n";
 		
 		random = (int) (Math.random() * questions.length);
-		response += questions[random];
+		response += questions[random] + "\n";
 				
+		random = (int) (Math.random() * 2);
+		if (random % 2 == 0)
+		{
+			random = (int) (Math.random() * movieList.size());
+			response += movieList.get(random).getTitle() + "is a great movie!";
+		}
+		
 		return response;
 	}
 	
