@@ -131,11 +131,11 @@ public class Chatbot
 	{
 		questions [0] = "What is your  name?";
 		questions [1] = "What do you like to do?";
-		questions [2] = "What kind of movies do you like?";
-		questions [3] = "Do you like to shop?";
-		questions [4] = "What do you like to shop for?";
+		questions [2] = "Do you have any sisters?";
+		questions [3] = "Why is the sky blue?";
+		questions [4] = "If you had 3 words left to say, what would they be?";
 		questions [5] = "What is your favorite color?";
-		questions [6] = "What is your favorite movie?";
+		questions [6] = "Let's settle this. Crunchy or creamy peanut butter?";
 		questions [7] = "How old are you?";
 		questions [8] = "What are the color of your eyes?";
 		questions [9] = "How big are your feet?";
@@ -237,16 +237,16 @@ public class Chatbot
 	{
 		for(int index = 0; index < movieList.size(); index +=1)
 		{
-			if(title != null && title.contains(movieList.get(index)))
-				{
-					return true;
-				}
+//			if(title != null && title.contains(movieList.getTitle()))
+//				{
+//					return true;
+//				}
 		}
 		return false;
 	}
 	
 	public boolean movieGenreChecker(String genre)
-	{
+	{		
 		return false;
 	}
 
