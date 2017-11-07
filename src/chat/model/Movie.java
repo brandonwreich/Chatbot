@@ -12,23 +12,15 @@ public class Movie
 	private LocalDate releaseDate;
 	private double starScore;
 	
-	public void Movie()
+	public Movie(String title)
 	{
-		this.title = "Finding Nemo";
-		this.genre = "Animation, Adventure, Comedy";
+		this.title = "Title: " + title;
+		this.genre = "Comedy";
 		this.ratingMPAA = "PG";
-		this.review = "";
-		this.length = 100;
-	}
-	public Movie(String title, String genre, String ratingMPAA, String review, int length)
-	{
-		this.title = "";
-		this.genre = genre;
-		this.ratingMPAA = ratingMPAA;
-		this.review = review;
-		this.length = length;
+		this.review = "This was a good movie!!";
+		this.length = 120;
 		this.releaseDate = null;
-		this.starScore = Double.NaN;
+		this.starScore = 9.99;
 	}
 
 	public String getTitle()
@@ -68,7 +60,7 @@ public class Movie
 
 	public void setTitle(String title)
 	{
-		this.title = "";
+		this.title = title;
 	}
 
 	public void setGenre(String genre)
@@ -98,11 +90,13 @@ public class Movie
 
 	public void setStarScore(double starScore)
 	{
-		this.starScore = Double.NaN;
+		this.starScore = starScore;
 	}
 	
 	public String toString()
 	{
-		return null;
+		String description = "";
+		
+		return description;
 	}
 }

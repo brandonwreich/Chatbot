@@ -52,33 +52,33 @@ public class Chatbot
 	
 	private void buildMovieList()
 	{
-		Movie spiderman = new Movie ("Spiderman", "Action, Adventure, Sci-Fi", "PG-13", "", 133);
-		Movie hiddenFigures = new Movie ("Hidden Figures","Biography, Drama, History", "PG", "", 127);
-		Movie happyGilmore = new Movie ("Happy Gilmore", "Comedy, Sport", "PG-13", "", 92);
-		Movie nachoLibre = new Movie ("Nacho Libre", "Comedy, Family, Sport", "PG", "", 92);
-		Movie youAgain = new Movie ("You Again", "Comedy, Family, Romance", "PG", "", 105);
-		Movie coolRunnings = new Movie ("Cool Runnings", "Adventure, Comedy, Family", "PG", "", 98);
-		Movie sevenBridesForSevenBrothers = new Movie ("Seven Brides for Seven Brothers", "Comedy, Drama, Musical", "G", "", 102);
-		Movie foreverStrong = new Movie ("Forever Strong", "Drama, Sport", "PG-13", "", 112);
-		Movie newsies = new Movie ("Newsies", "Musical", "PG", "", 149);
-		Movie tangeled = new Movie ("Tangeled", "Animation, Adventure, Comedy", "PG", "", 100);
-		Movie whileYouWereSleeping = new Movie ("While you were Sleeping", "Comedy, Drama, Romance", "PG", "", 103);
-		Movie becomingJane = new Movie ("Becoming Jane", "Biography, Drama, Romance", "PG", "", 120);
-		Movie findingNeverland = new Movie ("Finding Neverland", "Biography, Drama, Family,", "PG", "", 106);
-		Movie aladdin = new Movie ("Aladdin", "Animation,Adventure, Comedy", "G", "", 90);
-		Movie waitress = new Movie ("Waitress", "Comedy, Drama, Romance", "PG-13", "", 108);
-		Movie beautyAndTheBeast = new Movie ("Beauty and the Beast", "Family, Fatasy, Musical", "PG", "", 129);
-		Movie barbieAndTheDiamondCastle = new Movie ("Barbie and the Diamond Castle", "Animation, Family, Musical", "TV-Y", "", 79);
-		Movie mrsDoubtFire = new Movie ("Mrs. Doubtfire", "Comedy, Drama, Family", "PG-13", "", 125);
-		Movie flubber = new Movie ("Flubber", "Comedy, Family, Sci-Fi", "PG", "", 93);
-		Movie patchAdams = new Movie ("Patch Adams", "Biography, Comedy, Drama", "PG-13", "", 115);
-		Movie whiteChristmas = new Movie ("White Christmas", "Comedy, Musical, Romance", "NR", "", 120);
-		Movie aChristmasStory	= new Movie ("A Christmas Story", "Comedy, Family", "PG", "", 94);
-		Movie cheaperByTheDozen = new Movie ("Cheaper by the Dozen", "Comedy, Family", "PG", "", 98);
-		Movie sharkBoyAndLavaGirl = new Movie ("Shark Boy and Lava Girl", "Action, Adventure, Family", "PG", "", 93);
-		Movie bringItOn = new Movie ("Bring it on", "Comedy, Romance, Sport", "PG-13", "", 98);
-		Movie whiteChicks = new Movie ("White Chicks", "Comedy,Crime", "PG-13", "", 109);
-		Movie legallyBlonde = new Movie ("Legally Blonde", "Comedy, Romance", "PG-13", "", 96);
+		Movie spiderman = new Movie ("Spiderman");
+		Movie hiddenFigures = new Movie ("Hidden Figures");
+		Movie happyGilmore = new Movie ("Happy Gilmore");
+		Movie nachoLibre = new Movie ("Nacho Libre");
+		Movie youAgain = new Movie ("You Again");
+		Movie coolRunnings = new Movie ("Cool Runnings");
+		Movie sevenBridesForSevenBrothers = new Movie ("Seven Brides for Seven Brothers");
+		Movie foreverStrong = new Movie ("Forever Strong");
+		Movie newsies = new Movie ("Newsies");
+		Movie tangeled = new Movie ("Tangeled");
+		Movie whileYouWereSleeping = new Movie ("While you were Sleeping");
+		Movie becomingJane = new Movie ("Becoming Jane");
+		Movie findingNeverland = new Movie ("Finding Neverland");
+		Movie aladdin = new Movie ("Aladdin");
+		Movie waitress = new Movie ("Waitress");
+		Movie beautyAndTheBeast = new Movie ("Beauty and the Beast");
+		Movie barbieAndTheDiamondCastle = new Movie ("Barbie and the Diamond Castle");
+		Movie mrsDoubtFire = new Movie ("Mrs. Doubtfire");
+		Movie flubber = new Movie ("Flubber");
+		Movie patchAdams = new Movie ("Patch Adams");
+		Movie whiteChristmas = new Movie ("White Christmas");
+		Movie aChristmasStory	= new Movie ("A Christmas Story");
+		Movie cheaperByTheDozen = new Movie ("Cheaper by the Dozen");
+		Movie sharkBoyAndLavaGirl = new Movie ("Shark Boy and Lava Girl");
+		Movie bringItOn = new Movie ("Bring it on");
+		Movie whiteChicks = new Movie ("White Chicks");
+		Movie legallyBlonde = new Movie ("Legally Blonde");
 		 
 		
 		movieList.add(spiderman);
@@ -222,7 +222,7 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{	
-		for(int index = 0; index < cuteAnimalMemes.size(); index +=1)
+		for(int index = 0; index < shoppingList.size(); index +=1)
 		{
 			if(shoppingItem != null && shoppingItem.contains(shoppingList.get(index)))
 			{
@@ -235,13 +235,13 @@ public class Chatbot
 	
 	public boolean movieTitleChecker(String title)
 	{
-		for(int index = 0; index < movieList.size(); index +=1)
-		{
+//		for(int index = 0; index < movieList.size(); index +=1)
+//		{
 //			if(title != null && title.contains(movieList.getTitle()))
 //				{
 //					return true;
 //				}
-		}
+//		}
 		return false;
 	}
 	
