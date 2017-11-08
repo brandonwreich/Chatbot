@@ -218,6 +218,7 @@ public class Chatbot
 	
 	public boolean contentChecker(String contentCheck)
 	{
+		
 		return false;
 	}
 	
