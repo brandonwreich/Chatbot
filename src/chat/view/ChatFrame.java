@@ -5,20 +5,18 @@ import javax.swing.JFrame;
 
 public class ChatFrame extends JFrame
 {
-	private ChatbotController chatController;
+	private ChatbotController appController;
 	
-	public ChatFrame(ChatbotController chatController)
+	public ChatFrame(ChatbotController appController)
 	{
 		super();
-		this.chatController = chatController;
+		this.appController = appController;
 		
 		setupFrame();
 	}
 	
 	private void setupFrame()
 	{
-		this.setTitle("Chatbot");
-		this.setSize(500,500);
 		this.setVisible(true);
 	}
 }
