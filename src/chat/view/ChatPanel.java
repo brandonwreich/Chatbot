@@ -15,15 +15,19 @@ public class ChatPanel extends JPanel
 	private JButton chatButton;
 	private JTextArea chatArea;
 	private JTextField inputField;
-	private SpringLayout baseLayout;
+	private SpringLayout appLayout;
 	
 	public ChatPanel (ChatbotController appController)
 	{
 		super();
 		this.appController = appController;
-		chatButton = new JButton("Enter");
-		chatArea = new JTextArea();
-		inputField = new JTextField();
+		
+		//Initialize GUI data members
+		chatButton = new JButton("chat");
+		chatArea = new JTextArea(10, 25);
+		inputField = new JTextField(20);
+		appLayout = new SpringLayout();
+		
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -31,12 +35,10 @@ public class ChatPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.setLayout(baseLayout);
+		this.setLayout(appLayout);
 		this.add(chatButton);
 		this.add(chatArea);
 		this.add(inputField);
-		
-
 	}
 	
 	private void setupLayout()
