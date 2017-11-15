@@ -3,6 +3,8 @@ package chat.view;
 import chat.controller.ChatbotController;
 import javax.swing.JPanel;
 
+import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -35,6 +37,7 @@ public class ChatPanel extends JPanel
 	
 	private void setupPanel()
 	{
+		this.setBackground(Color.cyan);
 		this.setLayout(appLayout);
 		this.add(chatButton);
 		this.add(chatArea);
