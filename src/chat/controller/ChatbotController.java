@@ -2,16 +2,21 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.PopupDisplay;
+import chat.view.ChatFrame;
 
 public class ChatbotController
 {
 	private PopupDisplay display;
 	private Chatbot chatbot;
+	private ChatFrame appFrame;
 	
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Brandon Reich");
+		
+		//View initialized after Model
 		display = new PopupDisplay();
+		appFrame = new ChatFrame(this);
 	}
 	public void start()
 	{
