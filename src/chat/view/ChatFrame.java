@@ -17,6 +17,8 @@ public class ChatFrame extends JFrame
 	
 	private void setupFrame()
 	{
+		this.setSize(500, 500);
+		this.setTitle("Harry");
 		this.setVisible(true);
 	}
 }
