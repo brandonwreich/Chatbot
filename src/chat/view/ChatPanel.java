@@ -21,6 +21,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private JTextField inputField;
 	private SpringLayout appLayout;
+	private JButton checkerButton;
 
 	/**
 	 * Initializes data members and calls methods
@@ -37,6 +38,7 @@ public class ChatPanel extends JPanel
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
+//		checkerButton = new JButton("Check me");
 
 		setupPanel();
 		setupLayout();
@@ -51,6 +53,7 @@ public class ChatPanel extends JPanel
 		this.setBackground(Color.CYAN);
 		this.setLayout(appLayout);
 		this.add(chatButton);
+//		this.add(checkerButton);
 		this.add(chatArea);
 		this.add(inputField);
 		chatArea.setEnabled(false);
@@ -84,10 +87,10 @@ public class ChatPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				String userText = inputField.getText();
-				String displayText = appController.inertactWithChatbot(userText);
+				String displayText = appController.interactWithChatbot(userText);
 				chatArea.append(displayText);
 				inputField.setText("");
-				
+
 			}
 		});
 	}
