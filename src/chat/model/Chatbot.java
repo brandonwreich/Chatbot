@@ -247,7 +247,14 @@ public class Chatbot
 
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		if(input == "<>" || input == "< >" ||)
+		{
+			return false;
+		}
+		if(!input.endsWith(""))
+		{
+			return false;
+		}
 	}
 	
 	/**
