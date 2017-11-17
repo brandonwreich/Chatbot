@@ -11,7 +11,7 @@ public class Movie
 	private int length;
 	private LocalDate releaseDate;
 	private double starScore;
-	
+
 	public Movie(String title)
 	{
 		this.title = "Title: " + title;
@@ -92,11 +92,11 @@ public class Movie
 	{
 		this.starScore = starScore;
 	}
-	
+
 	public String toString()
 	{
 		String description = "";
-		
+
 		return description;
 	}
 }
