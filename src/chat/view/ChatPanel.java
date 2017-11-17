@@ -36,6 +36,10 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Sets up the panel
+	 */
+	
 	private void setupPanel()
 	{
 		this.setBackground(Color.CYAN);
@@ -44,6 +48,10 @@ public class ChatPanel extends JPanel
 		this.add(chatArea);
 		this.add(inputField);
 	}
+	
+	/**
+	 * Uses SpringLayout to set up the layout of the GUI
+	 */
 	
 	private void setupLayout()
 	{
@@ -54,7 +62,12 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
+		
 	}
+	
+	/**
+	 * Links the buttons and stuff to their appropriate listeners
+	 */
 	
 	private void setupListeners()
 	{
