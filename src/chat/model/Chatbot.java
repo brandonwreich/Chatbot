@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import chat.model.Movie;
 import java.lang.String;
 
+/**
+ * 
+ * @author brei8876
+ *
+ */
 public class Chatbot
 {
 	private List<Movie> movieList;
@@ -42,6 +47,9 @@ public class Chatbot
 		buildTopics();
 	}
 
+	/**
+	 * Puts verbs into my verbs array
+	 */
 	private void buildVerbs()
 	{
 		verbs [0] = "like";
@@ -50,6 +58,9 @@ public class Chatbot
 		verbs [3] = "am thinking about";
 	}
 	
+	/**
+	 * Puts movies into my MovieList
+	 */
 	private void buildMovieList()
 	{
 		Movie spiderman = new Movie ("Spiderman");
@@ -110,6 +121,9 @@ public class Chatbot
 		movieList.add(legallyBlonde);
 	}
 	
+	/**
+	 * Puts shopping items in to my shopping list
+	 */
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -126,6 +140,9 @@ public class Chatbot
 		shoppingList.add("juice");
 	}
 	
+	/**
+	 * Puts cute animals into my AnimalMemeList
+	 */
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("pupper");
@@ -134,6 +151,9 @@ public class Chatbot
 		cuteAnimalMemes.add("floofer");
 	}
 	
+	/**
+	 * Puts questions into my Question list
+	 */
 	private void buildQuestions()
 	{
 		questions [0] = "What is your  name?";
@@ -148,6 +168,9 @@ public class Chatbot
 		questions [9] = "How big are your feet?";
 	}
 	
+	/**
+	 * Put topics into my topic list
+	 */
 	private void buildTopics()
 	{
 		topics [0] = " people";
@@ -159,6 +182,12 @@ public class Chatbot
 		topics [6] = " grilled cheese sandwiches";
 	}
 	
+	/**
+	 * Processes the conversation
+	 * takes the chatbotResponse and uses the BuildChatbotResponse to build it
+	 * @param input
+	 * @return
+	 */
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
@@ -168,7 +197,11 @@ public class Chatbot
 		
 		return chatbotResponse;
 	}
-		
+	
+	/**
+	 * Takes a random verb and matches it to a random topic and spits out a random question and a random movie	
+	 * @return
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -192,6 +225,12 @@ public class Chatbot
 		return response;
 	}
 	
+	/**
+	 * Checks to see if the users input is long enough
+	 * If it is shorter than 2 characters long it returns false
+	 * @param input
+	 * @return
+	 */
 	public boolean lengthChecker(String input)
 	{
 			if (input != null && input.length() >= 2)
@@ -200,12 +239,20 @@ public class Chatbot
 			}	
 		return false;
 	}
-		
+	
+
 	public boolean htmlTagChecker(String input)
 	{
 		return false;
 	}
 	
+	/**
+	 * Checks to see if they have a valid user name
+	 * The user name must contain @
+	 * User name cannot be null or contain .com or more than one @
+	 * @param input
+	 * @return
+	 */
 	public boolean userNameChecker(String input)
 	{
 		if(input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@")) 
@@ -222,6 +269,11 @@ public class Chatbot
 		return false;
 	}
 	
+	/**
+	 * Checks to see if the input contains Animal memes
+	 * @param input
+	 * @return
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		for(int index = 0; index < cuteAnimalMemes.size(); index+= 1)
@@ -235,6 +287,11 @@ public class Chatbot
 		return false;
 	}
 	
+	/**
+	 * Checks to see if the input is in the shopping list
+	 * @param shoppingItem
+	 * @return
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{	
 		for(int index = 0; index < shoppingList.size(); index +=1)
@@ -264,7 +321,14 @@ public class Chatbot
 	{		
 		return false;
 	}
-
+	
+	/**
+	 * Checks to see if the user is ready to quit
+	 * Will only quit if the String EQUALS.ignoreCase "quit"
+	 * Other than that it will continue.
+	 * @param exitString
+	 * @return
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		if(exitString != null && exitString.equalsIgnoreCase("quit"))
