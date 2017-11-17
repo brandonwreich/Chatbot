@@ -11,6 +11,9 @@ import javax.swing.JTextField;
 
 import javax.swing.SpringLayout;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class ChatPanel extends JPanel
 {
 	private ChatbotController appController;
@@ -18,24 +21,28 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private JTextField inputField;
 	private SpringLayout appLayout;
-	
-	public ChatPanel (ChatbotController appController)
+
+	/**
+	 * Initializes data members and calls methods
+	 * 
+	 * @param appController
+	 */
+	public ChatPanel(ChatbotController appController)
 	{
 		super();
 		this.appController = appController;
-		
-		//Initialize GUI data members
+
+		// Initialize GUI data members
 		chatButton = new JButton("chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 
-		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
-	
+
 	/**
 	 * Sets up the panel
 	 */
@@ -46,12 +53,14 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(chatArea);
 		this.add(inputField);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
 	}
-	
+
 	/**
 	 * Uses SpringLayout to set up the layout of the GUI
 	 */
-	
+
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
@@ -61,16 +70,26 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
-		
+
 	}
-	
+
 	/**
 	 * Links the buttons and stuff to their appropriate listeners
 	 */
-	
+
 	private void setupListeners()
 	{
-		
+		chatButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = inputField.getText();
+				String displayText = appController.inertactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
+				
+			}
+		});
 	}
-	
+
 }
