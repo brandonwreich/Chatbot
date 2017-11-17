@@ -17,6 +17,9 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * Sets up the framework
+	 */
 	private void setupFrame()
 	{
 		this.setSize(500, 500);
