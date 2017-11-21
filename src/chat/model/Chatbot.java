@@ -247,14 +247,16 @@ public class Chatbot
 
 	public boolean htmlTagChecker(String input)
 	{
-		if(input == "<>" || input == "< >" ||)
+		if(input == "<>" || input == "< >")
 		{
-			return false;
+			return true;
 		}
 		if(!input.endsWith(""))
 		{
-			return false;
+			return true;
 		}
+		
+		return true;
 	}
 	
 	/**
@@ -352,7 +354,15 @@ public class Chatbot
 
 	public boolean keyboardMashChecker(String sample)
 	{
-		return false;
+		boolean isValidMash = false;
+		String [] mash = {"S.D.F", "derf", "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH"};
+//		
+//		if()
+//		{
+//			isValidMash = true;
+//		}
+//		
+		return isValidMash;
 	}
 	
 	public List<Movie> getMovieList()
