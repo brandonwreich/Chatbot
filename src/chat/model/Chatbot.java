@@ -268,12 +268,14 @@ public class Chatbot
 	 */
 	public boolean userNameChecker(String input)
 	{
+		boolean isValidUserName = false;
+		
 		if(input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@")) 
 		{
-			return true;
+			isValidUserName = true;
 		}
 		
-		return false;
+		return isValidUserName;
 	}
 	
 	public boolean contentChecker(String contentCheck)
@@ -344,24 +346,29 @@ public class Chatbot
 	 */
 	public boolean quitChecker(String exitString)
 	{
+		boolean isValidExitString = false;
+		
 		if(exitString != null && exitString.equalsIgnoreCase("quit"))
 		{
-			return true;
+			isValidExitString = true;
 		}
 		
-		return false;
+		return isValidExitString;
 	}
 
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean isValidMash = false;
-		String [] mash = {"S.D.F", "derf", "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH"};
-//		
-//		if()
-//		{
-//			isValidMash = true;
-//		}
-//		
+		String [] mash = {"S.D.F.", "derf", "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH"};
+		
+		for(String keyMash : mash)
+		{
+			if(sample.contains(keyMash))
+			{
+				isValidMash = true;
+			}
+		}
+		
 		return isValidMash;
 	}
 	
