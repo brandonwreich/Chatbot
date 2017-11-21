@@ -67,7 +67,6 @@ public class ChatPanel extends JPanel
 	/**
 	 * Uses SpringLayout to set up the layout of the GUI
 	 */
-
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
@@ -85,7 +84,6 @@ public class ChatPanel extends JPanel
 	/**
 	 * Links the buttons and stuff to their appropriate listeners
 	 */
-
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()

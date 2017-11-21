@@ -11,15 +11,11 @@ public class Movie
 	private int length;
 	private LocalDate releaseDate;
 	private double starScore;
-<<<<<<< HEAD
-
-=======
 	
 	/**
 	 * Initializes the data members
 	 * @param title
 	 */
->>>>>>> master
 	public Movie(String title)
 	{
 		this.title = "Title: " + title;
@@ -156,14 +152,10 @@ public class Movie
 	{
 		this.starScore = starScore;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	/**
 	 * Describes the movies using title, genre, etc.
 	 */
->>>>>>> master
 	public String toString()
 	{
 		String description = "";

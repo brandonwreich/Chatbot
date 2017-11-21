@@ -24,15 +24,12 @@ public class Chatbot
 	private String content;
 	private String intro;
 	private LocalTime currentTime;
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Initializes data members and calls methods
+	 * 
 	 * @param username
 	 */
->>>>>>> master
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -65,14 +62,10 @@ public class Chatbot
 		verbs[2] = "ambivalent about";
 		verbs[3] = "am thinking about";
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Puts movies into my MovieList
 	 */
->>>>>>> master
 	private void buildMovieList()
 	{
 		Movie spiderman = new Movie("Spiderman");
@@ -131,14 +124,10 @@ public class Chatbot
 		movieList.add(whiteChicks);
 		movieList.add(legallyBlonde);
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Puts shopping items in to my shopping list
 	 */
->>>>>>> master
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -154,14 +143,10 @@ public class Chatbot
 		shoppingList.add("hot sauce");
 		shoppingList.add("juice");
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Puts cute animals into my AnimalMemeList
 	 */
->>>>>>> master
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("pupper");
@@ -169,8 +154,10 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("floofer");
 	}
-<<<<<<< HEAD
 
+	/**
+	 * Puts questions into my Question list
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What is your  name?";
@@ -185,29 +172,9 @@ public class Chatbot
 		questions[9] = "How big are your feet?";
 	}
 
-=======
-	
-	/**
-	 * Puts questions into my Question list
-	 */
-	private void buildQuestions()
-	{
-		questions [0] = "What is your  name?";
-		questions [1] = "What do you like to do?";
-		questions [2] = "Do you have any sisters?";
-		questions [3] = "Why is the sky blue?";
-		questions [4] = "If you had 3 words left to say, what would they be?";
-		questions [5] = "What is your favorite color?";
-		questions [6] = "Let's settle this. Crunchy or creamy peanut butter?";
-		questions [7] = "How old are you?";
-		questions [8] = "What are the color of your eyes?";
-		questions [9] = "How big are your feet?";
-	}
-	
 	/**
 	 * Put topics into my topic list
 	 */
->>>>>>> master
 	private void buildTopics()
 	{
 		topics[0] = " people";
@@ -218,17 +185,14 @@ public class Chatbot
 		topics[5] = " waffles";
 		topics[6] = " grilled cheese sandwiches";
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
-	 * Processes the conversation
-	 * takes the chatbotResponse and uses the BuildChatbotResponse to build it
+	 * Processes the conversation takes the chatbotResponse and uses the BuildChatbotResponse to build
+	 * it
+	 * 
 	 * @param input
 	 * @return
 	 */
->>>>>>> master
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
@@ -238,15 +202,13 @@ public class Chatbot
 
 		return chatbotResponse;
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
-	 * Takes a random verb and matches it to a random topic and spits out a random question and a random movie	
+	 * Takes a random verb and matches it to a random topic and spits out a random question and a random
+	 * movie
+	 * 
 	 * @return
 	 */
->>>>>>> master
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -269,17 +231,14 @@ public class Chatbot
 
 		return response;
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
-	 * Checks to see if the users input is long enough
-	 * If it is shorter than 2 characters long it returns false
+	 * Checks to see if the users input is long enough If it is shorter than 2 characters long it
+	 * returns false
+	 * 
 	 * @param input
 	 * @return
 	 */
->>>>>>> master
 	public boolean lengthChecker(String input)
 	{
 		boolean isValidLength = false;
@@ -290,26 +249,28 @@ public class Chatbot
 		}
 		return isValidLength;
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> master
 
 	public boolean htmlTagChecker(String input)
 	{
-		if(input == "<>" || input == "< >")
+		if (input == "<>" || input == "< >")
 		{
 			return true;
 		}
-		if(!input.endsWith(""))
+		if (!input.endsWith(""))
 		{
 			return true;
 		}
-		
+
 		return true;
 	}
-<<<<<<< HEAD
 
+	/**
+	 * Checks to see if they have a valid user name The user name must contain @ User name cannot be
+	 * null or contain .com or more than one @
+	 * 
+	 * @param input
+	 * @return
+	 */
 	public boolean userNameChecker(String input)
 	{
 		boolean isValidUserName = false;
@@ -319,43 +280,27 @@ public class Chatbot
 			isValidUserName = true;
 		}
 
-=======
-	
-	/**
-	 * Checks to see if they have a valid user name
-	 * The user name must contain @
-	 * User name cannot be null or contain .com or more than one @
-	 * @param input
-	 * @return
-	 */
-	public boolean userNameChecker(String input)
-	{
-		boolean isValidUserName = false;
-		
-		if(input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@")) 
-		{
-			isValidUserName = true;
-		}
-		
->>>>>>> master
 		return isValidUserName;
 	}
 
 	public boolean contentChecker(String contentCheck)
 	{
+		boolean isValidContent = false;
 
-		return false;
+		if (contentCheck != null && contentCheck.length() < 6)
+		{
+			isValidContent = true;
+		}
+		return isValidContent;
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Checks to see if the input contains Animal memes
+	 * 
 	 * @param input
 	 * @return
 	 */
->>>>>>> master
+
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean isValidMeme = false;
@@ -370,16 +315,13 @@ public class Chatbot
 
 		return isValidMeme;
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * Checks to see if the input is in the shopping list
+	 * 
 	 * @param shoppingItem
 	 * @return
 	 */
->>>>>>> master
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 
@@ -412,17 +354,17 @@ public class Chatbot
 	{
 		return false;
 	}
-	
+
 	/**
-	 * Checks to see if the user is ready to quit
-	 * Will only quit if the String EQUALS.ignoreCase "quit"
+	 * Checks to see if the user is ready to quit Will only quit if the String EQUALS.ignoreCase "quit"
 	 * Other than that it will continue.
+	 * 
 	 * @param exitString
 	 * @return
 	 */
 	public boolean quitChecker(String exitString)
 	{
-<<<<<<< HEAD
+
 		boolean isValidQuit = false;
 
 		if (exitString != null && exitString.equalsIgnoreCase("quit"))
@@ -431,31 +373,21 @@ public class Chatbot
 		}
 
 		return isValidQuit;
-=======
-		boolean isValidExitString = false;
-		
-		if(exitString != null && exitString.equalsIgnoreCase("quit"))
-		{
-			isValidExitString = true;
-		}
-		
-		return isValidExitString;
->>>>>>> master
 	}
 
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean isValidMash = false;
-		String [] mash = {"S.D.F.", "derf", "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH"};
-		
-		for(String keyMash : mash)
+		String[] mash = { "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH" };
+
+		for (String keyMash : mash)
 		{
-			if(sample.contains(keyMash))
+			if (sample.contains(keyMash))
 			{
 				isValidMash = true;
 			}
 		}
-		
+
 		return isValidMash;
 	}
 
@@ -521,7 +453,14 @@ public class Chatbot
 
 	public void setContent(String content)
 	{
-		this.content = content;
+		if (content != null)
+		{
+			this.content = content;
+		}
+		else
+		{
+			this.content = "";
+		}
 	}
 
 	public String toString()
