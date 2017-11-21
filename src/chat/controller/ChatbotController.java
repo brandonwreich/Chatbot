@@ -29,15 +29,7 @@ public class ChatbotController
 		String chatbotSays = "";
 
 		if (chatbot.quitChecker(input))
-<<<<<<< HEAD
-		{
-			close();
-		}
 
-		chatbotSays += chatbot.processConversation(input);
-
-		return chatbotSays;
-=======
 		{
 			close();
 		}
@@ -87,7 +79,7 @@ public class ChatbotController
 		}
 
 		return response;
->>>>>>> master
+
 	}
 
 	private void close()

@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 
 public class ChatFrame extends JFrame
 {
-<<<<<<< HEAD
 	private ChatbotController appController;
 	private ChatPanel appPanel;
 
@@ -29,7 +28,4 @@ public class ChatFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-=======
-
->>>>>>> master
 }

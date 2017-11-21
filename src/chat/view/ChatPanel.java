@@ -38,12 +38,9 @@ public class ChatPanel extends JPanel
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
-<<<<<<< HEAD
-//		checkerButton = new JButton("Check me");
-=======
 		checkerButton = new JButton("Check me");
 		
->>>>>>> master
+
 
 		setupPanel();
 		setupLayout();
@@ -58,11 +55,9 @@ public class ChatPanel extends JPanel
 		this.setBackground(Color.CYAN);
 		this.setLayout(appLayout);
 		this.add(chatButton);
-<<<<<<< HEAD
-//		this.add(checkerButton);
-=======
+
 		this.add(checkerButton);
->>>>>>> master
+
 		this.add(chatArea);
 		this.add(inputField);
 		chatArea.setEnabled(false);
@@ -82,11 +77,8 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
-<<<<<<< HEAD
-=======
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, inputField);
 		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, 30, SpringLayout.SOUTH, inputField);
->>>>>>> master
 
 	}
 
@@ -107,12 +99,10 @@ public class ChatPanel extends JPanel
 
 			}
 		});
-<<<<<<< HEAD
-=======
 		
 		checkerButton.addActionListener(new ActionListener()
 				{
-				public void ationPerformed(ActionEvent click)
+				public void actionPerformed(ActionEvent click)
 				{
 					String userText = inputField.getText();
 					String displayText = appController.useCheckers(userText);
@@ -120,7 +110,6 @@ public class ChatPanel extends JPanel
 					inputField.setText("");
 				}
 				});
->>>>>>> master
 	}
 
 }
