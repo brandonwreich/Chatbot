@@ -339,14 +339,15 @@ public class Chatbot
 	}
 
 	public boolean movieTitleChecker(String title)
-	{
-		// for(int index = 0; index < movieList.size(); index +=1)
-		// {
-		// if(title != null && title.contains(movieList.getTitle()))
-		// {
-		// return true;
-		// }
-		// }
+	{	
+//		for (int index = 0; index < movieList.size(); index += 1)
+//		{
+//			if (title != null && movieList.))
+//			{
+//				return true;
+////			}
+//
+//		}
 		return false;
 	}
 
