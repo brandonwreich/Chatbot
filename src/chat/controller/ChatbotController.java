@@ -29,6 +29,7 @@ public class ChatbotController
 		String chatbotSays = "";
 
 		if (chatbot.quitChecker(input))
+<<<<<<< HEAD
 		{
 			close();
 		}
@@ -36,6 +37,57 @@ public class ChatbotController
 		chatbotSays += chatbot.processConversation(input);
 
 		return chatbotSays;
+=======
+		{
+			close();
+		}
+
+		chatbotSays += chatbot.processConversation(input);
+
+		return chatbotSays;
+	}
+
+	public String useCheckers(String text)
+	{
+		String response = "";
+
+		if (chatbot.contentChecker(text))
+		{
+			response += "This text matches the special content";
+		}
+
+		if (chatbot.cuteAnimalMemeChecker(text))
+		{
+			response += "This text matches the cute Animal Memes";
+		}
+
+		if (chatbot.htmlTagChecker(text))
+		{
+			response += "This text matches the html content";
+		}
+
+		if (chatbot.keyboardMashChecker(text))
+		{
+			response += "This text matches the keyboard mash";
+		}
+
+		if (chatbot.movieGenreChecker(text))
+		{
+			response += "This text matches the movie genres";
+		}
+
+		if (chatbot.shoppingListChecker(text))
+		{
+			response += "This text matches the shopping list";
+		}
+
+		if (chatbot.userNameChecker(text))
+		{
+			response += "This text matches the user name content";
+		}
+
+		return response;
+>>>>>>> master
 	}
 
 	private void close()
