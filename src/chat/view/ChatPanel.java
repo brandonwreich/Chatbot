@@ -42,9 +42,6 @@ public class ChatPanel extends JPanel
 		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
 		checkerButton = new JButton("Check me");
-		
-		
-
 
 		setupPanel();
 		setupLayout();
@@ -102,17 +99,18 @@ public class ChatPanel extends JPanel
 
 			}
 		});
-		
+
 		checkerButton.addActionListener(new ActionListener()
-				{
-				public void actionPerformed(ActionEvent click)
-				{
-					String userText = inputField.getText();
-					String displayText = appController.useCheckers(userText);
-					chatArea.append(displayText);;
-					inputField.setText("");
-				}
-				});
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = inputField.getText();
+				String displayText = appController.useCheckers(userText);
+				chatArea.append(displayText);
+				;
+				inputField.setText("");
+			}
+		});
 	}
 
 }

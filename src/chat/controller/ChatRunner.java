@@ -8,7 +8,7 @@ package chat.controller;
 
 public class ChatRunner
 {
-	public static void main(String [] agrs)
+	public static void main(String[] agrs)
 	{
 		ChatbotController myApp = new ChatbotController();
 		myApp.start();

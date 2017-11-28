@@ -228,10 +228,10 @@ public class Chatbot
 			random = (int) (Math.random() * movieList.size());
 			response += movieList.get(random).getTitle() + " is a great movie!";
 		}
-		
+
 		int followup = (int) (Math.random() * 5);
-		
-		switch(followup)
+
+		switch (followup)
 		{
 		case 0:
 			response += followUps[0] + "\n";
@@ -265,7 +265,7 @@ public class Chatbot
 		{
 			isValidLength = true;
 		}
-		
+
 		return isValidLength;
 	}
 
@@ -307,7 +307,7 @@ public class Chatbot
 		{
 			isValidContent = true;
 		}
-		
+
 		return isValidContent;
 	}
 
@@ -356,15 +356,15 @@ public class Chatbot
 	}
 
 	public boolean movieTitleChecker(String title)
-	{	
-//		for (int index = 0; index < movieList.size(); index += 1)
-//		{
-//			if (title != null && movieList.))
-//			{
-//				return true;
-////			}
-//
-//		}
+	{
+		// for (int index = 0; index < movieList.size(); index += 1)
+		// {
+		// if (title != null && movieList.))
+		// {
+		// return true;
+		//// }
+		//
+		// }
 		return false;
 	}
 

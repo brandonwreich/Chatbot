@@ -11,9 +11,10 @@ public class Movie
 	private int length;
 	private LocalDate releaseDate;
 	private double starScore;
-	
+
 	/**
 	 * Initializes the data members
+	 * 
 	 * @param title
 	 */
 	public Movie(String title)
@@ -29,6 +30,7 @@ public class Movie
 
 	/**
 	 * Gets the title
+	 * 
 	 * @return title
 	 */
 	public String getTitle()
@@ -38,6 +40,7 @@ public class Movie
 
 	/**
 	 * Gets the genre
+	 * 
 	 * @return genre
 	 */
 	public String getGenre()
@@ -47,6 +50,7 @@ public class Movie
 
 	/**
 	 * Gets the MPAA rating
+	 * 
 	 * @return ratingMPAA
 	 */
 	public String getRatingMPAA()
@@ -56,6 +60,7 @@ public class Movie
 
 	/**
 	 * Gets the review
+	 * 
 	 * @return review
 	 */
 	public String getReview()
@@ -65,6 +70,7 @@ public class Movie
 
 	/**
 	 * Gets the movie length
+	 * 
 	 * @return length
 	 */
 	public int getLength()
@@ -74,6 +80,7 @@ public class Movie
 
 	/**
 	 * Gets the movie release date
+	 * 
 	 * @return releaseDate
 	 */
 	public LocalDate getReleaseDate()
@@ -83,6 +90,7 @@ public class Movie
 
 	/**
 	 * Gets the movie star score
+	 * 
 	 * @return starScore
 	 */
 	public double getStarScore()
@@ -92,6 +100,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's title
+	 * 
 	 * @param title
 	 */
 	public void setTitle(String title)
@@ -101,6 +110,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's genre
+	 * 
 	 * @param genre
 	 */
 	public void setGenre(String genre)
@@ -110,6 +120,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's MPAA rating
+	 * 
 	 * @param ratingMPAA
 	 */
 	public void setRatingMPAA(String ratingMPAA)
@@ -119,6 +130,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's review
+	 * 
 	 * @param review
 	 */
 	public void setReview(String review)
@@ -128,6 +140,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's length
+	 * 
 	 * @param length
 	 */
 	public void setLength(int length)
@@ -137,6 +150,7 @@ public class Movie
 
 	/**
 	 * Sets the movie's release date
+	 * 
 	 * @param releaseDate
 	 */
 	public void setReleaseDate(LocalDate releaseDate)
@@ -146,13 +160,14 @@ public class Movie
 
 	/**
 	 * Sets the movie's star score
+	 * 
 	 * @param starScore
 	 */
 	public void setStarScore(double starScore)
 	{
 		this.starScore = starScore;
 	}
-	
+
 	/**
 	 * Describes the movies using title, genre, etc.
 	 */
