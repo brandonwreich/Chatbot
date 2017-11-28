@@ -228,6 +228,24 @@ public class Chatbot
 			random = (int) (Math.random() * movieList.size());
 			response += movieList.get(random).getTitle() + " is a great movie!";
 		}
+		
+		int followup = (int) (Math.random() * 5);
+		
+		switch(followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 1:
+			response += followUps[1] + "\n";
+			break;
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
+		}
 
 		return response;
 	}
@@ -237,7 +255,7 @@ public class Chatbot
 	 * returns false
 	 * 
 	 * @param input
-	 * @return
+	 * @return isValidLength
 	 */
 	public boolean lengthChecker(String input)
 	{
@@ -247,21 +265,13 @@ public class Chatbot
 		{
 			isValidLength = true;
 		}
+		
 		return isValidLength;
 	}
 
 	public boolean htmlTagChecker(String input)
 	{
-		if (input == "<>" || input == "< >")
-		{
-			return true;
-		}
-		if (!input.endsWith(""))
-		{
-			return true;
-		}
-
-		return true;
+		return false;
 	}
 
 	/**
@@ -269,7 +279,7 @@ public class Chatbot
 	 * null or contain .com or more than one @
 	 * 
 	 * @param input
-	 * @return
+	 * @return isValidUserName
 	 */
 	public boolean userNameChecker(String input)
 	{
@@ -283,6 +293,12 @@ public class Chatbot
 		return isValidUserName;
 	}
 
+	/**
+	 * Checks to see if the user input content
+	 * 
+	 * @param contentCheck
+	 * @return isValidContent
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
 		boolean isValidContent = false;
@@ -291,6 +307,7 @@ public class Chatbot
 		{
 			isValidContent = true;
 		}
+		
 		return isValidContent;
 	}
 
@@ -298,7 +315,7 @@ public class Chatbot
 	 * Checks to see if the input contains Animal memes
 	 * 
 	 * @param input
-	 * @return
+	 * @return isValidMeme
 	 */
 
 	public boolean cuteAnimalMemeChecker(String input)
@@ -320,7 +337,7 @@ public class Chatbot
 	 * Checks to see if the input is in the shopping list
 	 * 
 	 * @param shoppingItem
-	 * @return
+	 * @return isValidItem
 	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
@@ -361,7 +378,7 @@ public class Chatbot
 	 * Other than that it will continue.
 	 * 
 	 * @param exitString
-	 * @return
+	 * @return isValidQuit
 	 */
 	public boolean quitChecker(String exitString)
 	{
@@ -376,6 +393,12 @@ public class Chatbot
 		return isValidQuit;
 	}
 
+	/**
+	 * Tests to see if the user slams the keyboard
+	 * 
+	 * @param sample
+	 * @return isValidMash
+	 */
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean isValidMash = false;
