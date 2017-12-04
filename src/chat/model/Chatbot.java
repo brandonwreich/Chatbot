@@ -39,7 +39,7 @@ public class Chatbot
 		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.topics = new String[7];
 		this.verbs = new String[4];
 		this.followUps = new String[5];
@@ -187,15 +187,14 @@ public class Chatbot
 	}
 
 	/**
-	 * Processes the conversation takes the chatbotResponse and uses the BuildChatbotResponse to build
-	 * it
-	 * 
+	 * Builds a response based on the users input and the created Chatbot response.
 	 * @param input
-	 * @return
+	 * @return Returns the combined user and chatbot response as a string
 	 */
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + "";
 		chatbotResponse += "You said: " + "\n" + input + "\n";
 
 		chatbotResponse += buildChatbotResponse();
@@ -204,10 +203,8 @@ public class Chatbot
 	}
 
 	/**
-	 * Takes a random verb and matches it to a random topic and spits out a random question and a random
-	 * movie
-	 * 
-	 * @return
+	 * Builds a response using Math.random() and selected arrays of string
+	 * @return The random sentence built by the predefined arrays.
 	 */
 	private String buildChatbotResponse()
 	{
