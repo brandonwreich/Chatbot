@@ -29,6 +29,7 @@ public class ChatbotController
 		String chatbotSays = "";
 
 		if (chatbot.quitChecker(input))
+
 		{
 			close();
 		}
@@ -78,6 +79,7 @@ public class ChatbotController
 		}
 
 		return response;
+
 	}
 
 	private void close()

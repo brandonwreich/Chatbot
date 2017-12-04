@@ -16,17 +16,18 @@ public class Chatbot
 	private List<Movie> movieList;
 	private List<String> shoppingList;
 	private List<String> cuteAnimalMemes;
-	private String [] verbs;
-	private String [] topics;
-	private String [] followUps;
-	private String [] questions;
+	private String[] verbs;
+	private String[] topics;
+	private String[] followUps;
+	private String[] questions;
 	private String username;
 	private String content;
 	private String intro;
 	private LocalTime currentTime;
-	
+
 	/**
 	 * Initializes data members and calls methods
+	 * 
 	 * @param username
 	 */
 	public Chatbot(String username)
@@ -34,15 +35,15 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
-		this.questions = new String [10];
+		this.questions = new String[10];
 		this.username = username;
 		this.content = null;
 		this.intro = null;
 		this.currentTime = null;
-		this.topics = new String [7];
-		this.verbs = new String [4];
-		this.followUps = new String [5];
-		
+		this.topics = new String[7];
+		this.verbs = new String[4];
+		this.followUps = new String[5];
+
 		buildVerbs();
 		buildMovieList();
 		buildShoppingList();
@@ -56,46 +57,45 @@ public class Chatbot
 	 */
 	private void buildVerbs()
 	{
-		verbs [0] = "like";
-		verbs [1] = "dislike";
-		verbs [2] = "ambivalent about";
-		verbs [3] = "am thinking about";
+		verbs[0] = "like";
+		verbs[1] = "dislike";
+		verbs[2] = "ambivalent about";
+		verbs[3] = "am thinking about";
 	}
-	
+
 	/**
 	 * Puts movies into my MovieList
 	 */
 	private void buildMovieList()
 	{
-		Movie spiderman = new Movie ("Spiderman");
-		Movie hiddenFigures = new Movie ("Hidden Figures");
-		Movie happyGilmore = new Movie ("Happy Gilmore");
-		Movie nachoLibre = new Movie ("Nacho Libre");
-		Movie youAgain = new Movie ("You Again");
-		Movie coolRunnings = new Movie ("Cool Runnings");
-		Movie sevenBridesForSevenBrothers = new Movie ("Seven Brides for Seven Brothers");
-		Movie foreverStrong = new Movie ("Forever Strong");
-		Movie newsies = new Movie ("Newsies");
-		Movie tangeled = new Movie ("Tangeled");
-		Movie whileYouWereSleeping = new Movie ("While you were Sleeping");
-		Movie becomingJane = new Movie ("Becoming Jane");
-		Movie findingNeverland = new Movie ("Finding Neverland");
-		Movie aladdin = new Movie ("Aladdin");
-		Movie waitress = new Movie ("Waitress");
-		Movie beautyAndTheBeast = new Movie ("Beauty and the Beast");
-		Movie barbieAndTheDiamondCastle = new Movie ("Barbie and the Diamond Castle");
-		Movie mrsDoubtFire = new Movie ("Mrs. Doubtfire");
-		Movie flubber = new Movie ("Flubber");
-		Movie patchAdams = new Movie ("Patch Adams");
-		Movie whiteChristmas = new Movie ("White Christmas");
-		Movie aChristmasStory	= new Movie ("A Christmas Story");
-		Movie cheaperByTheDozen = new Movie ("Cheaper by the Dozen");
-		Movie sharkBoyAndLavaGirl = new Movie ("Shark Boy and Lava Girl");
-		Movie bringItOn = new Movie ("Bring it on");
-		Movie whiteChicks = new Movie ("White Chicks");
-		Movie legallyBlonde = new Movie ("Legally Blonde");
-		 
-		
+		Movie spiderman = new Movie("Spiderman");
+		Movie hiddenFigures = new Movie("Hidden Figures");
+		Movie happyGilmore = new Movie("Happy Gilmore");
+		Movie nachoLibre = new Movie("Nacho Libre");
+		Movie youAgain = new Movie("You Again");
+		Movie coolRunnings = new Movie("Cool Runnings");
+		Movie sevenBridesForSevenBrothers = new Movie("Seven Brides for Seven Brothers");
+		Movie foreverStrong = new Movie("Forever Strong");
+		Movie newsies = new Movie("Newsies");
+		Movie tangeled = new Movie("Tangeled");
+		Movie whileYouWereSleeping = new Movie("While you were Sleeping");
+		Movie becomingJane = new Movie("Becoming Jane");
+		Movie findingNeverland = new Movie("Finding Neverland");
+		Movie aladdin = new Movie("Aladdin");
+		Movie waitress = new Movie("Waitress");
+		Movie beautyAndTheBeast = new Movie("Beauty and the Beast");
+		Movie barbieAndTheDiamondCastle = new Movie("Barbie and the Diamond Castle");
+		Movie mrsDoubtFire = new Movie("Mrs. Doubtfire");
+		Movie flubber = new Movie("Flubber");
+		Movie patchAdams = new Movie("Patch Adams");
+		Movie whiteChristmas = new Movie("White Christmas");
+		Movie aChristmasStory = new Movie("A Christmas Story");
+		Movie cheaperByTheDozen = new Movie("Cheaper by the Dozen");
+		Movie sharkBoyAndLavaGirl = new Movie("Shark Boy and Lava Girl");
+		Movie bringItOn = new Movie("Bring it on");
+		Movie whiteChicks = new Movie("White Chicks");
+		Movie legallyBlonde = new Movie("Legally Blonde");
+
 		movieList.add(spiderman);
 		movieList.add(hiddenFigures);
 		movieList.add(happyGilmore);
@@ -124,7 +124,7 @@ public class Chatbot
 		movieList.add(whiteChicks);
 		movieList.add(legallyBlonde);
 	}
-	
+
 	/**
 	 * Puts shopping items in to my shopping list
 	 */
@@ -143,7 +143,7 @@ public class Chatbot
 		shoppingList.add("hot sauce");
 		shoppingList.add("juice");
 	}
-	
+
 	/**
 	 * Puts cute animals into my AnimalMemeList
 	 */
@@ -154,41 +154,42 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("floofer");
 	}
-	
+
 	/**
 	 * Puts questions into my Question list
 	 */
 	private void buildQuestions()
 	{
-		questions [0] = "What is your  name?";
-		questions [1] = "What do you like to do?";
-		questions [2] = "Do you have any sisters?";
-		questions [3] = "Why is the sky blue?";
-		questions [4] = "If you had 3 words left to say, what would they be?";
-		questions [5] = "What is your favorite color?";
-		questions [6] = "Let's settle this. Crunchy or creamy peanut butter?";
-		questions [7] = "How old are you?";
-		questions [8] = "What are the color of your eyes?";
-		questions [9] = "How big are your feet?";
+		questions[0] = "What is your  name?";
+		questions[1] = "What do you like to do?";
+		questions[2] = "Do you have any sisters?";
+		questions[3] = "Why is the sky blue?";
+		questions[4] = "If you had 3 words left to say, what would they be?";
+		questions[5] = "What is your favorite color?";
+		questions[6] = "Let's settle this. Crunchy or creamy peanut butter?";
+		questions[7] = "How old are you?";
+		questions[8] = "What are the color of your eyes?";
+		questions[9] = "How big are your feet?";
 	}
-	
+
 	/**
 	 * Put topics into my topic list
 	 */
 	private void buildTopics()
 	{
-		topics [0] = " people";
-		topics [1] = " breakfast foods";
-		topics [2] = " smell of grass being cut";
-		topics [3] = " pinapple juice";
-		topics [4] = " different types of bread";
-		topics [5] = " waffles";
-		topics [6] = " grilled cheese sandwiches";
+		topics[0] = " people";
+		topics[1] = " breakfast foods";
+		topics[2] = " smell of grass being cut";
+		topics[3] = " pinapple juice";
+		topics[4] = " different types of bread";
+		topics[5] = " waffles";
+		topics[6] = " grilled cheese sandwiches";
 	}
-	
+
 	/**
-	 * Processes the conversation
-	 * takes the chatbotResponse and uses the BuildChatbotResponse to build it
+	 * Processes the conversation takes the chatbotResponse and uses the BuildChatbotResponse to build
+	 * it
+	 * 
 	 * @param input
 	 * @return
 	 */
@@ -196,202 +197,273 @@ public class Chatbot
 	{
 		String chatbotResponse = "";
 		chatbotResponse += "You said: " + "\n" + input + "\n";
-		
+
 		chatbotResponse += buildChatbotResponse();
-		
+
 		return chatbotResponse;
 	}
-	
+
 	/**
-	 * Takes a random verb and matches it to a random topic and spits out a random question and a random movie	
+	 * Takes a random verb and matches it to a random topic and spits out a random question and a random
+	 * movie
+	 * 
 	 * @return
 	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
 		int random = (int) (Math.random() * verbs.length);
-		
+
 		response += verbs[random];
-		
+
 		random = (int) (Math.random() * topics.length);
 		response += "" + topics[random] + ".\n";
-		
+
 		random = (int) (Math.random() * questions.length);
 		response += questions[random] + "\n";
-				
+
 		random = (int) (Math.random() * 2);
 		if (random % 2 == 0)
 		{
 			random = (int) (Math.random() * movieList.size());
-			response += movieList.get(random).getTitle() + "is a great movie!";
+			response += movieList.get(random).getTitle() + " is a great movie!";
 		}
-		
+
+		int followup = (int) (Math.random() * 5);
+
+		switch (followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 1:
+			response += followUps[1] + "\n";
+			break;
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
+		}
+
 		return response;
 	}
-	
+
 	/**
-	 * Checks to see if the users input is long enough
-	 * If it is shorter than 2 characters long it returns false
+	 * Checks to see if the users input is long enough If it is shorter than 2 characters long it
+	 * returns false
+	 * 
 	 * @param input
-	 * @return
+	 * @return isValidLength
 	 */
 	public boolean lengthChecker(String input)
 	{
-			if (input != null && input.length() >= 2)
-			{
-				return true;
-			}	
-		return false;
+		boolean isValidLength = false;
+
+		if (input != null && input.length() >= 2)
+		{
+			isValidLength = true;
+		}
+
+		return isValidLength;
 	}
-	
 
 	public boolean htmlTagChecker(String input)
 	{
-		if(input == "<>" || input == "< >")
+		boolean containsHTML = false;
+
+		if (input == null || !input.contains("<"))
 		{
-			return true;
+			return containsHTML;
 		}
-		if(!input.endsWith(""))
+
+		int firstOpen = input.indexOf("<");
+		int firstClose = input.indexOf(">");
+		int secondOpen = -9;
+		int secondClose = -9;
+		String tagText = "";
+
+		if (input.contains("<>") || input.indexOf("< >") > -1)
 		{
-			return true;
+			containsHTML = false;
+		}
+
+		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+		{
+			containsHTML = true;
+		}
+
+		else if (firstClose > firstOpen)
+		{
+			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
+			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
 		}
 		
-		return true;
+		return containsHTML;
 	}
-	
+
 	/**
-	 * Checks to see if they have a valid user name
-	 * The user name must contain @
-	 * User name cannot be null or contain .com or more than one @
+	 * Checks to see if they have a valid user name The user name must contain @ User name cannot be
+	 * null or contain .com or more than one @
+	 * 
 	 * @param input
-	 * @return
+	 * @return isValidUserName
 	 */
 	public boolean userNameChecker(String input)
 	{
 		boolean isValidUserName = false;
-		
-		if(input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@")) 
+
+		if (input != null && input.contains("@") && !input.contains(".com") && !input.contains("@@"))
 		{
 			isValidUserName = true;
 		}
-		
+
 		return isValidUserName;
 	}
-	
+
+	/**
+	 * Checks to see if the user input content
+	 * 
+	 * @param contentCheck
+	 * @return isValidContent
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
-		
-		return false;
-	}
-	
-	/**
-	 * Checks to see if the input contains Animal memes
-	 * @param input
-	 * @return
-	 */
-	public boolean cuteAnimalMemeChecker(String input)
-	{
-		for(int index = 0; index < cuteAnimalMemes.size(); index+= 1)
+		boolean isValidContent = false;
+
+		if (contentCheck != null && contentCheck.length() < 6)
 		{
-			if(input != null && input.contains(cuteAnimalMemes.get(index)))
-				{
-					return true;
-				}
+			isValidContent = true;
 		}
 
-		return false;
+		return isValidContent;
 	}
-	
+
 	/**
-	 * Checks to see if the input is in the shopping list
-	 * @param shoppingItem
-	 * @return
+	 * Checks to see if the input contains Animal memes
+	 * 
+	 * @param input
+	 * @return isValidMeme
 	 */
-	public boolean shoppingListChecker(String shoppingItem)
-	{	
-		for(int index = 0; index < shoppingList.size(); index +=1)
+
+	public boolean cuteAnimalMemeChecker(String input)
+	{
+		boolean isValidMeme = false;
+
+		for (int index = 0; index < cuteAnimalMemes.size(); index += 1)
 		{
-			if(shoppingItem != null && shoppingItem.contains(shoppingList.get(index)))
+			if (input != null && input.contains(cuteAnimalMemes.get(index)))
 			{
-				return true;
+				isValidMeme = true;
 			}
 		}
-		
-		return false;
+
+		return isValidMeme;
 	}
-	
+
+	/**
+	 * Checks to see if the input is in the shopping list
+	 * 
+	 * @param shoppingItem
+	 * @return isValidItem
+	 */
+	public boolean shoppingListChecker(String shoppingItem)
+	{
+
+		boolean isValidItem = false;
+
+		for (int index = 0; index < shoppingList.size(); index += 1)
+		{
+			if (shoppingItem != null && shoppingItem.contains(shoppingList.get(index)))
+			{
+				isValidItem = true;
+			}
+		}
+
+		return isValidItem;
+	}
+
 	public boolean movieTitleChecker(String title)
 	{
-//		for(int index = 0; index < movieList.size(); index +=1)
-//		{
-//			if(title != null && title.contains(movieList.getTitle()))
-//				{
-//					return true;
-//				}
-//		}
+		// for (int index = 0; index < movieList.size(); index += 1)
+		// {
+		// if (title != null && movieList.))
+		// {
+		// return true;
+		//// }
+		//
+		// }
 		return false;
 	}
-	
+
 	public boolean movieGenreChecker(String genre)
-	{		
+	{
 		return false;
 	}
-	
+
 	/**
-	 * Checks to see if the user is ready to quit
-	 * Will only quit if the String EQUALS.ignoreCase "quit"
+	 * Checks to see if the user is ready to quit Will only quit if the String EQUALS.ignoreCase "quit"
 	 * Other than that it will continue.
+	 * 
 	 * @param exitString
-	 * @return
+	 * @return isValidQuit
 	 */
 	public boolean quitChecker(String exitString)
 	{
-		boolean isValidExitString = false;
-		
-		if(exitString != null && exitString.equalsIgnoreCase("quit"))
+
+		boolean isValidQuit = false;
+
+		if (exitString != null && exitString.equalsIgnoreCase("quit"))
 		{
-			isValidExitString = true;
+			isValidQuit = true;
 		}
-		
-		return isValidExitString;
+
+		return isValidQuit;
 	}
 
+	/**
+	 * Tests to see if the user slams the keyboard
+	 * 
+	 * @param sample
+	 * @return isValidMash
+	 */
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean isValidMash = false;
-		String [] mash = {"S.D.F.", "derf", "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH"};
-		
-		for(String keyMash : mash)
+		String[] mash = { "sdf", "SDF", "dfg", "cvb", ",./", "kjh", "DFG", "CVB", "KJH" };
+
+		for (String keyMash : mash)
 		{
-			if(sample.contains(keyMash))
+			if (sample.contains(keyMash))
 			{
 				isValidMash = true;
 			}
 		}
-		
+
 		return isValidMash;
 	}
-	
+
 	public List<Movie> getMovieList()
 	{
 		return movieList;
 	}
-	
+
 	public List<String> getShoppingList()
 	{
 		return shoppingList;
 	}
-	
+
 	public List<String> getCuteAnimalMemes()
 	{
 		return cuteAnimalMemes;
 	}
 
-	public String [] getQuestions()
+	public String[] getQuestions()
 	{
 		return questions;
 	}
-	
+
 	public String[] getVerbs()
 	{
 		return verbs;
@@ -411,7 +483,7 @@ public class Chatbot
 	{
 		return username;
 	}
-	
+
 	public String getContent()
 	{
 		return content;
@@ -421,26 +493,33 @@ public class Chatbot
 	{
 		return null;
 	}
-	
+
 	public LocalTime getCurrentTime()
 	{
 		return null;
 	}
-	
+
 	public void setUsername(String username)
 	{
 		this.username = username;
 	}
-	
+
 	public void setContent(String content)
 	{
-		this.content = content;
+		if (content != null)
+		{
+			this.content = content;
+		}
+		else
+		{
+			this.content = "";
+		}
 	}
-	
+
 	public String toString()
 	{
 		String description = "";
-		
+
 		return description;
 	}
 }

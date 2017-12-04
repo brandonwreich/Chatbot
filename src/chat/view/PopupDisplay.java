@@ -7,24 +7,24 @@ public class PopupDisplay
 {
 	private ImageIcon icon;
 	private String windowTitle;
-	
+
 	public PopupDisplay()
 	{
 		icon = new ImageIcon(getClass().getResource("chat.view.images/Chatbot.jpg"));
 		windowTitle = "Chatbot says";
 	}
-	
+
 	public void displayText(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, windowTitle, JOptionPane.INFORMATION_MESSAGE, icon);
 	}
-	
+
 	public String collectResponse(String question)
 	{
 		String answer = "";
-		
-		answer += JOptionPane.showInputDialog(null, question, windowTitle, JOptionPane.PLAIN_MESSAGE, icon, null,"");
-		
+
+		answer += JOptionPane.showInputDialog(null, question, windowTitle, JOptionPane.PLAIN_MESSAGE, icon, null, "");
+
 		return answer;
 	}
 }

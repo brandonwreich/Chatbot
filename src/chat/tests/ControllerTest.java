@@ -14,7 +14,7 @@ import chat.view.ChatFrame;
 public class ControllerTest
 {
 	private ChatbotController testedController;
-	
+
 	@Before
 	public void setUp() throws Exception
 	{
@@ -46,7 +46,7 @@ public class ControllerTest
 		assertNotNull("Interact method should not return null", testedController.interactWithChatbot(""));
 		assertNotNull("Interact method should not return null still", testedController.interactWithChatbot(null));
 		assertTrue("Interact method should always return a String longer than 5", testedController.interactWithChatbot("").length() > 5);
-		
+
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class ControllerTest
 		assertNotNull("Popup must be initialized.", testedController.getDisplay());
 		assertTrue("Popup display type should be used.", testedController.getDisplay() instanceof PopupDisplay);
 	}
-	
+
 	public void testGetChatFrame()
 	{
 		assertNotNull("ChatFrame must be initialized.", testedController.getChatFrame());

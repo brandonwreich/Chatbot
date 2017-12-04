@@ -51,6 +51,7 @@ public class ChatPanel extends JPanel
 		appLayout = new SpringLayout();
 		chatScrollPane = new JScrollPane();
 		checkerButton = new JButton("Check contents");
+		checkerButton = new JButton("Check me");
 
 		setupScrollPane();
 		setupPanel();
@@ -79,8 +80,6 @@ public class ChatPanel extends JPanel
 		this.add(chatScrollPane);
 		this.add(inputField);
 		this.add(infoLabel);
-		chatArea = new JTextArea(10, 25);
-		add(chatArea);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -88,7 +87,6 @@ public class ChatPanel extends JPanel
 	/**
 	 * Uses SpringLayout to set up the layout of the GUI
 	 */
-
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
@@ -102,12 +100,14 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -2, SpringLayout.NORTH, inputField);
+		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatScrollPane, -6, SpringLayout.NORTH, infoLabel);
 	}
 
 	/**
 	 * Links the buttons and stuff to their appropriate listeners
 	 */
-
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
@@ -132,5 +132,18 @@ public class ChatPanel extends JPanel
 //					inputField.setText("");
 //				}
 //				});
+
+
+		checkerButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = inputField.getText();
+				String displayText = appController.useCheckers(userText);
+				chatArea.append(displayText);
+				;
+				inputField.setText("");
+			}
+		});
 	}
 }

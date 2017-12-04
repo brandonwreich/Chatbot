@@ -13,7 +13,7 @@ import chat.model.Chatbot;
 public class ChatbotTest
 {
 	private Chatbot testedChatbot;
-	
+
 	@Before
 	public void setUp() throws Exception
 	{
@@ -30,9 +30,9 @@ public class ChatbotTest
 	public void testChatbot()
 	{
 		assertNotNull("Special content must be initialized in constructor", testedChatbot.getContent());
-		
+
 	}
-	
+
 	@Test
 	public void testBuildListsAndArray()
 	{
@@ -42,8 +42,7 @@ public class ChatbotTest
 		assertTrue("ShoppingList is too small", testedChatbot.getShoppingList().size() > 10);
 		assertNotNull("Questions must be created", testedChatbot.getQuestions());
 		assertFalse("Questions array is too small", testedChatbot.getQuestions().length < 6);
-		
-		
+
 	}
 
 	@Test
@@ -93,7 +92,7 @@ public class ChatbotTest
 		String newContent = "adasffadga";
 		testedChatbot.setContent(newContent);
 		assertTrue("Changed content should also work", testedChatbot.contentChecker("adasffadga sfd sdf sdsdf "));
-		
+
 	}
 
 	@Test
@@ -139,7 +138,7 @@ public class ChatbotTest
 		assertTrue("Quit does mean quit", testedChatbot.quitChecker("Quit"));
 		assertTrue("QUIT also means quit", testedChatbot.quitChecker("QUIT"));
 		assertFalse("Quit with other words does not mean quit", testedChatbot.quitChecker("Is it time to quit?"));
-		
+
 	}
 
 	@Test
@@ -177,25 +176,25 @@ public class ChatbotTest
 				kittieCount += 1;
 			}
 		}
-		
-		assertTrue("You must have at least one otter in your list", otterCount > 0 );
-		assertTrue("You must have at least one floofer in your list", flooferCount > 0 );
-		assertTrue("You must have at least one kittie in your list", kittieCount > 0 );
+
+		assertTrue("You must have at least one otter in your list", otterCount > 0);
+		assertTrue("You must have at least one floofer in your list", flooferCount > 0);
+		assertTrue("You must have at least one kittie in your list", kittieCount > 0);
 	}
-	
+
 	@Test
 	public void testGetQuestions()
 	{
 		assertNotNull("Questions array must exist", testedChatbot.getQuestions());
 		assertTrue("Questions array size must be 10", testedChatbot.getQuestions().length == 10);
 		assertTrue("First question should ask the users name", testedChatbot.getQuestions()[0].contains("name"));
-		for(String question : testedChatbot.getQuestions())
+		for (String question : testedChatbot.getQuestions())
 		{
 			assertNotNull("All questions must be initialized", question);
 			assertTrue("All questions must end with a ?", question.lastIndexOf("?") == question.length() - 1);
 		}
 	}
-	
+
 	@Test
 	public void testGetUsername()
 	{
@@ -217,7 +216,7 @@ public class ChatbotTest
 		assertTrue("Check match plus failed", testedChatbot.contentChecker("content " + content));
 		assertTrue("Opposite check match failed", testedChatbot.contentChecker(content + " other content"));
 	}
-	
+
 	@Test
 	public void testKeyboardMashChecker()
 	{
@@ -253,7 +252,7 @@ public class ChatbotTest
 	{
 		assertFalse("No @ sign should be in the toString", testedChatbot.toString().indexOf("@") >= 0);
 	}
-	
+
 	@Test
 	public void testGetCurrentTime()
 	{

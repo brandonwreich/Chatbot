@@ -3,4 +3,7 @@ bin/
 .DS_Store
 *.class
 *.class
+<<<<<<< HEAD
+=======
 *.class
+>>>>>>> master
