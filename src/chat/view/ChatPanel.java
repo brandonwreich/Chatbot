@@ -8,12 +8,21 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 import javax.swing.SpringLayout;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The JPanel subclass for the chatbot project
+ * 
+ * @author Brandon Reich
+ * @version 21/11/2017
+ *
+ */
 public class ChatPanel extends JPanel
 {
 	private ChatbotController appController;
@@ -22,6 +31,8 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private SpringLayout appLayout;
 	private JButton checkerButton;
+	private JScrollPane chatScrollPane;
+	private JLabel infoLabel;
 
 	/**
 	 * Initializes data members and calls methods
@@ -35,17 +46,27 @@ public class ChatPanel extends JPanel
 
 		// Initialize GUI data members
 		chatButton = new JButton("chat");
-		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
+		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
-		checkerButton = new JButton("Check me");
-		
+		chatScrollPane = new JScrollPane();
+		checkerButton = new JButton("Check contents");
 
+		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
 
+	/*
+	 * Sets up the scroll pane
+	 */
+	private void setupScrollPane()
+	{
+		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+	
 	/**
 	 * Sets up the panel
 	 */
@@ -55,8 +76,11 @@ public class ChatPanel extends JPanel
 		this.setLayout(appLayout);
 		this.add(chatButton);
 		this.add(checkerButton);
-		this.add(chatArea);
+		this.add(chatScrollPane);
 		this.add(inputField);
+		this.add(infoLabel);
+		chatArea = new JTextArea(10, 25);
+		add(chatArea);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -68,15 +92,16 @@ public class ChatPanel extends JPanel
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
-		appLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, chatArea);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -33, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
-		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 20, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatScrollPane, 25, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatScrollPane, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, inputField);
 		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, 30, SpringLayout.SOUTH, inputField);
-
+		appLayout.putConstraint(SpringLayout.WEST, inputField, 25, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
+		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
 	}
 
 	/**
@@ -97,16 +122,15 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
-		checkerButton.addActionListener(new ActionListener()
-				{
-				public void ationPerformed(ActionEvent click)
-				{
-					String userText = inputField.getText();
-					String displayText = appController.useCheckers(userText);
-					chatArea.append(displayText);;
-					inputField.setText("");
-				}
-				});
+//		checkerButton.addActionListener(new ActionListener()
+//				{
+//				public void ationPerformed(ActionEvent click)
+//				{
+//					String userText = inputField.getText();
+//					String displayText = appController.useCheckers(userText);
+//					chatArea.append(displayText);;
+//					inputField.setText("");
+//				}
+//				});
 	}
-
 }
