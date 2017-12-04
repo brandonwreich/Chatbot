@@ -252,7 +252,7 @@ public class Chatbot
 	 * returns false
 	 * 
 	 * @param input
-	 * @return isValidLength
+	 * @return A boolean value stating if the user input is long enough
 	 */
 	public boolean lengthChecker(String input)
 	{
@@ -286,7 +286,7 @@ public class Chatbot
 			containsHTML = false;
 		}
 
-		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>") || input.toUpperCase().contains("<B>  </B>"))
 		{
 			containsHTML = true;
 		}
@@ -305,7 +305,7 @@ public class Chatbot
 	 * null or contain .com or more than one @
 	 * 
 	 * @param input
-	 * @return isValidUserName
+	 * @return A boolean value stating if the User name is valid
 	 */
 	public boolean userNameChecker(String input)
 	{
@@ -343,7 +343,6 @@ public class Chatbot
 	 * @param input
 	 * @return isValidMeme
 	 */
-
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean isValidMeme = false;
@@ -493,7 +492,7 @@ public class Chatbot
 
 	public LocalTime getCurrentTime()
 	{
-		return null;
+		return currentTime;
 	}
 
 	public void setUsername(String username)
