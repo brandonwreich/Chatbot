@@ -37,8 +37,8 @@ public class Chatbot
 		this.cuteAnimalMemes = new ArrayList<String>();
 		this.questions = new String[10];
 		this.username = username;
-		this.content = null;
-		this.intro = null;
+		this.content = "content";
+		this.intro = "HI! My name is Billbot and I can talk to you about lots of things, like movies" + "and cuteAnimalMemes and other stuff!!";
 		this.currentTime = LocalTime.now();
 		this.topics = new String[7];
 		this.verbs = new String[4];
@@ -188,6 +188,7 @@ public class Chatbot
 
 	/**
 	 * Builds a response based on the users input and the created Chatbot response.
+	 * 
 	 * @param input
 	 * @return Returns the combined user and chatbot response as a string
 	 */
@@ -204,6 +205,7 @@ public class Chatbot
 
 	/**
 	 * Builds a response using Math.random() and selected arrays of string
+	 * 
 	 * @return The random sentence built by the predefined arrays.
 	 */
 	private String buildChatbotResponse()
@@ -297,6 +299,7 @@ public class Chatbot
 			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
 		}
 		
+		
 		return containsHTML;
 	}
 
@@ -329,7 +332,12 @@ public class Chatbot
 	{
 		boolean isValidContent = false;
 
-		if (contentCheck != null && contentCheck.length() < 6)
+		if (contentCheck.length() < 4)
+		{
+			isValidContent = false;
+		}
+
+		if (contentCheck.contains(content))
 		{
 			isValidContent = true;
 		}
@@ -380,22 +388,43 @@ public class Chatbot
 		return isValidItem;
 	}
 
-	public boolean movieTitleChecker(String title)
+	/**
+	 * Checks to see if they input a movie title in the movie list
+	 * 
+	 * @param title
+	 * @return A boolean value stating if it is a valid movie title
+	 */
+		public boolean movieTitleChecker(String title)
 	{
-		// for (int index = 0; index < movieList.size(); index += 1)
-		// {
-		// if (title != null && movieList.))
-		// {
-		// return true;
-		//// }
-		//
-		// }
-		return false;
+		boolean isValidTitle = false;
+
+		for (int index = 0; index < movieList.size(); index += 1)
+		{
+			if (title != null && title != "")
+			{
+				isValidTitle = true;
+			}
+		}
+
+		return isValidTitle;
 	}
 
+	/**
+	 * Checks to see if they input a correct movie genre
+	 * 
+	 * @param genre
+	 * @return A boolean value stating if it is a valid movie genre
+	 */
 	public boolean movieGenreChecker(String genre)
 	{
-		return false;
+		boolean isValidGenre = false;
+
+		if (genre != null && genre != "")
+		{
+			isValidGenre = true;
+		}
+
+		return isValidGenre;
 	}
 
 	/**
@@ -487,7 +516,7 @@ public class Chatbot
 
 	public String getIntro()
 	{
-		return null;
+		return intro;
 	}
 
 	public LocalTime getCurrentTime()
