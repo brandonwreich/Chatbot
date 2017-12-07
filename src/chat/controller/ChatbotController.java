@@ -79,7 +79,6 @@ public class ChatbotController
 		}
 
 		return response;
-
 	}
 
 	private void close()
@@ -96,5 +95,20 @@ public class ChatbotController
 		chatbotSays += chatbot.processConversation(chat);
 
 		return chatbotSays;
+	}
+	
+	public Chatbot getChatbot()
+	{
+		return chatbot;
+	}
+	
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
+	
+	public ChatFrame getChatFrame()
+	{
+		return appFrame;
 	}
 }
