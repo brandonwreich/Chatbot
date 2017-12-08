@@ -50,6 +50,7 @@ public class Chatbot
 		buildCuteAnimals();
 		buildQuestions();
 		buildTopics();
+		buildFollowUps();
 	}
 
 	/**
@@ -185,6 +186,15 @@ public class Chatbot
 		topics[5] = " waffles";
 		topics[6] = " grilled cheese sandwiches";
 	}
+	
+	private void buildFollowUps()
+	{
+		followUps[0] = "How about you?";
+		followUps[1] = "What do you think?";
+		followUps[2] = "What do you like?";
+		followUps[3] = "How would that go?";
+		followUps[4] = "Do you think the same?";
+	}
 
 	/**
 	 * Builds a response based on the users input and the created Chatbot response.
@@ -195,7 +205,7 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
-		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " \n";
 		chatbotResponse += "You said: " + "\n" + input + "\n";
 
 		chatbotResponse += buildChatbotResponse();
@@ -225,7 +235,7 @@ public class Chatbot
 		if (random % 2 == 0)
 		{
 			random = (int) (Math.random() * movieList.size());
-			response += movieList.get(random).getTitle() + " is a great movie!";
+			response += movieList.get(random).getTitle() + " is a great movie! \n";
 		}
 
 		int followup = (int) (Math.random() * 5);

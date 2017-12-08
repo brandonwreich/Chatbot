@@ -45,37 +45,37 @@ public class ChatbotController
 
 		if (chatbot.contentChecker(text))
 		{
-			response += "This text matches the special content";
+			response += "This text matches the special content. \n";
 		}
 
 		if (chatbot.cuteAnimalMemeChecker(text))
 		{
-			response += "This text matches the cute Animal Memes";
+			response += "This text matches the cute Animal Memes. \n";
 		}
 
 		if (chatbot.htmlTagChecker(text))
 		{
-			response += "This text matches the html content";
+			response += "This text matches the html content. \n";
 		}
 
 		if (chatbot.keyboardMashChecker(text))
 		{
-			response += "This text matches the keyboard mash";
+			response += "This text matches the keyboard mash. \n";
 		}
 
 		if (chatbot.movieGenreChecker(text))
 		{
-			response += "This text matches the movie genres";
+			response += "This text matches the movie genres. \n";
 		}
 
 		if (chatbot.shoppingListChecker(text))
 		{
-			response += "This text matches the shopping list";
+			response += "This text matches the shopping list. \n";
 		}
 
 		if (chatbot.userNameChecker(text))
 		{
-			response += "This text matches the user name content";
+			response += "This text matches the user name content. \n";
 		}
 
 		return response;

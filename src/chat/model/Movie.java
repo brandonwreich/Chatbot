@@ -19,7 +19,15 @@ public class Movie
 	 */
 	public Movie(String title)
 	{
-		this.title = "Title: " + title;
+		if (title.length() > 3)
+		{
+			this.title = title;
+		}
+		else
+		{
+			this.title = "The movie " + title;
+		}
+		
 		this.genre = "Comedy";
 		this.ratingMPAA = "PG";
 		this.review = "This was a good movie!!";
