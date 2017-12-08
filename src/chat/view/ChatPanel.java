@@ -178,7 +178,7 @@ public class ChatPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				Random rand = new Random();
-				int i = rand.nextInt();
+				int i = rand.nextInt(100-0) + 0;
 				String num = i + " \n";
 				chatArea.append(num);
 			}
