@@ -13,7 +13,7 @@ import chat.model.Movie;
 public class MovieTest
 {
 	private Movie testedMovie;
-	
+
 	@Before
 	public void setUp() throws Exception
 	{
@@ -49,17 +49,17 @@ public class MovieTest
 	@Test
 	public void testGetRatingMPAA()
 	{
-		String [] validRatings = {"G","PG","PG-13","R"};
-	
+		String[] validRatings = { "G", "PG", "PG-13", "R" };
+
 		boolean isValid = false;
-		for(String rating : validRatings)
+		for (String rating : validRatings)
 		{
 			if (testedMovie.getRatingMPAA().equals(rating))
 			{
 				isValid = true;
 			}
 		}
-		
+
 		assertTrue("Rating must be valid", isValid);
 	}
 
@@ -85,7 +85,7 @@ public class MovieTest
 	@Test
 	public void testGetStarScore()
 	{
-		assertFalse("Cannot use Nan as a value" , Double.isNaN(testedMovie.getStarScore()));
+		assertFalse("Cannot use Nan as a value", Double.isNaN(testedMovie.getStarScore()));
 		assertTrue("No more than 10 stars", testedMovie.getStarScore() < 10.0);
 	}
 
@@ -127,7 +127,7 @@ public class MovieTest
 		int length = 100;
 		testedMovie.setLength(length);
 		assertTrue("Length should change", testedMovie.getLength() == length);
-		
+
 	}
 
 	@Test
@@ -145,7 +145,7 @@ public class MovieTest
 		testedMovie.setStarScore(starScore);
 		assertTrue("Star score not properly linked.", testedMovie.getStarScore() - starScore < 0.001);
 	}
-	
+
 	@Test
 	public void testToString()
 	{

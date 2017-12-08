@@ -304,16 +304,19 @@ public class Chatbot
 		int secondClose = -9;
 		String tagText = "";
 
+		// Check bad tags
 		if (input.contains("<>") || input.indexOf("< >") > -1)
 		{
 			containsHTML = false;
 		}
 
+		// Check singleton
 		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>") || input.toUpperCase().contains("<B>  </B>"))
 		{
 			containsHTML = true;
 		}
 
+		// Checks others
 		else if (firstClose > firstOpen)
 		{
 			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();

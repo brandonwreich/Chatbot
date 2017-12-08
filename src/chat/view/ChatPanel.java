@@ -58,6 +58,7 @@ public class ChatPanel extends JPanel
 		chatScrollPane = new JScrollPane();
 		checkerButton = new JButton("Check me");
 		numberButton = new JButton("Random Number");
+		
 
 		// Call setup methods
 		setupScrollPane();
@@ -134,6 +135,10 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -2, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
 
+		// Random Number Button
+		numberButton.setToolTipText("Generate a random number");
+		appLayout.putConstraint(SpringLayout.NORTH, numberButton, 0, SpringLayout.NORTH, checkerButton);
+		appLayout.putConstraint(SpringLayout.WEST, numberButton, 6, SpringLayout.EAST, checkerButton);
 	}
 
 	/**
@@ -173,8 +178,8 @@ public class ChatPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				Random rand = new Random();
-				int i = rand.nextInt(999999999);
-				String num = i + "/n";
+				int i = rand.nextInt();
+				String num = i + " \n";
 				chatArea.append(num);
 			}
 		});

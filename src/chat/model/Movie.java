@@ -19,6 +19,7 @@ public class Movie
 
 	/**
 	 * Initializes the data members
+	 * 
 	 * @param title
 	 */
 	public Movie(String title)
@@ -31,7 +32,7 @@ public class Movie
 		{
 			this.title = "The movie " + title;
 		}
-		
+
 		this.genre = "Comedy";
 		this.ratingMPAA = "PG";
 		this.review = "This was a good movie!!";
@@ -40,10 +41,10 @@ public class Movie
 		this.starScore = 9.99;
 	}
 
-/**
- * Getters and Setters
- */
-	
+	/**
+	 * Getters and Setters
+	 */
+
 	public String getTitle()
 	{
 		return title;
