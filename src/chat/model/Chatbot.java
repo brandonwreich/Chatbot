@@ -154,7 +154,7 @@ public class Chatbot
 		cuteAnimalMemes.add("otter");
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("floofer");
-		cuteAnimalMemes.add("Huskey");
+		cuteAnimalMemes.add("huskey");
 		cuteAnimalMemes.add("panda");
 	}
 
@@ -311,7 +311,7 @@ public class Chatbot
 		}
 
 		// Check singleton
-		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>") || input.toUpperCase().contains("<B>  </B>"))
+		if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>") || input.toUpperCase().contains("<B>  </B>") || input.toUpperCase().contains("<I>") || input.contains("<A "))
 		{
 			containsHTML = true;
 		}
@@ -322,7 +322,11 @@ public class Chatbot
 			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
 			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
 		}
-
+		else if(tagText.length() < 13)
+		{
+			containsHTML = false;
+		}
+		
 		return containsHTML;
 	}
 
@@ -341,6 +345,7 @@ public class Chatbot
 		{
 			isValidUserName = true;
 		}
+	
 
 		return isValidUserName;
 	}
@@ -491,6 +496,10 @@ public class Chatbot
 
 		return isValidMash;
 	}
+
+	/**
+	 * Getters and Setters
+	 */
 
 	public List<Movie> getMovieList()
 	{
