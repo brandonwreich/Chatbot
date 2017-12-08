@@ -15,6 +15,7 @@ public class ChatFrame extends JFrame
 
 	/**
 	 * Initializes GUI members and calls helper methods
+	 * 
 	 * @param appController
 	 */
 	public ChatFrame(ChatbotController appController)
@@ -23,7 +24,7 @@ public class ChatFrame extends JFrame
 		this.appController = appController;
 		appPanel = new ChatPanel(appController);
 
-		//Calls setup methods
+		// Calls setup methods
 		setupFrame();
 	}
 
@@ -38,7 +39,7 @@ public class ChatFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-	
+
 	public ChatbotController getBaseController()
 	{
 		return appController;

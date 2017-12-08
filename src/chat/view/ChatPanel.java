@@ -17,6 +17,8 @@ import javax.swing.SpringLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.Random;
+
 /**
  * The JPanel subclass for the chatbot project
  * 
@@ -34,9 +36,11 @@ public class ChatPanel extends JPanel
 	private JButton checkerButton;
 	private JScrollPane chatScrollPane;
 	private JLabel infoLabel;
+	private JButton numberButton;
 
 	/**
 	 * Initializes data members and calls method
+	 * 
 	 * @param appController
 	 */
 	public ChatPanel(ChatbotController appController)
@@ -53,8 +57,9 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 25, SpringLayout.WEST, this);
 		chatScrollPane = new JScrollPane();
 		checkerButton = new JButton("Check me");
-		
-		//Call setup methods
+		numberButton = new JButton("Random Number");
+
+		// Call setup methods
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
@@ -66,12 +71,12 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupScrollPane()
 	{
-		//Scroll Pane setup
+		// Scroll Pane setup
 		chatScrollPane.setViewportView(chatArea);
 		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		
-		//Chat Area setup
+
+		// Chat Area setup
 		chatArea.setText("Hello, I am Billbot! What would you like to talk about? \n");
 		chatArea.setToolTipText("Billbot's responses show up here");
 		chatArea.setWrapStyleWord(true);
@@ -82,7 +87,7 @@ public class ChatPanel extends JPanel
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
-	
+
 	/**
 	 * Sets up the panel
 	 */
@@ -95,6 +100,7 @@ public class ChatPanel extends JPanel
 		this.add(chatScrollPane);
 		this.add(inputField);
 		this.add(infoLabel);
+		this.add(numberButton);
 	}
 
 	/**
@@ -102,33 +108,32 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
-		//Input Field
+		// Input Field
 		inputField.setToolTipText("Chat here");
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
 		appLayout.putConstraint(SpringLayout.WEST, inputField, 25, SpringLayout.WEST, this);
-		
-		//Chat Button
+
+		// Chat Button
 		chatButton.setToolTipText("Send chat");
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -33, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, -25, SpringLayout.EAST, this);
-		
-		//Chat Scroll Pane (Chat Area)
+
+		// Chat Scroll Pane (Chat Area)
 		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatScrollPane, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatScrollPane, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatScrollPane, -6, SpringLayout.NORTH, infoLabel);
 
-		//Checker Button
+		// Checker Button
 		checkerButton.setToolTipText("Check content");
 		appLayout.putConstraint(SpringLayout.NORTH, checkerButton, 6, SpringLayout.SOUTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 10, SpringLayout.WEST, inputField);
-		
-		//Info Label
+
+		// Info Label
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -2, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
-		
-		
+
 	}
 
 	/**
@@ -136,7 +141,7 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupListeners()
 	{
-		//Sends the chat
+		// Sends the chat
 		chatButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -149,7 +154,7 @@ public class ChatPanel extends JPanel
 			}
 		});
 
-		//Checks to see if the input is special content
+		// Checks to see if the input is special content
 		checkerButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -159,6 +164,18 @@ public class ChatPanel extends JPanel
 				chatArea.append(displayText);
 				;
 				inputField.setText("");
+			}
+		});
+
+		// Generates a random number
+		numberButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Random rand = new Random();
+				int i = rand.nextInt(999999999);
+				String num = i + "/n";
+				chatArea.append(num);
 			}
 		});
 	}

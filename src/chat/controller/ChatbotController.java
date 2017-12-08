@@ -33,8 +33,9 @@ public class ChatbotController
 	}
 
 	/**
-	 * Interacts with Billbot.
-	 * Calls the processConversation method from Chatbot and also the quitChecker.
+	 * Interacts with Billbot. Calls the processConversation method from Chatbot and also the
+	 * quitChecker.
+	 * 
 	 * @param input
 	 * @return
 	 */
@@ -54,8 +55,8 @@ public class ChatbotController
 	}
 
 	/**
-	 * Checks to see if the user has inputed content that will check with one
-	 * of the checkers.
+	 * Checks to see if the user has inputed content that will check with one of the checkers.
+	 * 
 	 * @param text
 	 * @return A response based upon if a checker is set true
 	 */
@@ -102,8 +103,7 @@ public class ChatbotController
 	}
 
 	/**
-	 * Close method.
-	 * Calls a pop up window that says Goodbye.
+	 * Close method. Calls a pop up window that says Goodbye.
 	 */
 	private void close()
 	{
@@ -120,21 +120,21 @@ public class ChatbotController
 
 		return chatbotSays;
 	}
-	
+
 	/**
 	 * Getters and Setters
 	 */
-	
+
 	public Chatbot getChatbot()
 	{
 		return chatbot;
 	}
-	
+
 	public PopupDisplay getDisplay()
 	{
 		return display;
 	}
-	
+
 	public ChatFrame getChatFrame()
 	{
 		return appFrame;
