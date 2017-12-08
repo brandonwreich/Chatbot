@@ -36,8 +36,7 @@ public class ChatPanel extends JPanel
 	private JLabel infoLabel;
 
 	/**
-	 * Initializes data members and calls methods
-	 * 
+	 * Initializes data members and calls method
 	 * @param appController
 	 */
 	public ChatPanel(ChatbotController appController)
@@ -55,6 +54,7 @@ public class ChatPanel extends JPanel
 		chatScrollPane = new JScrollPane();
 		checkerButton = new JButton("Check me");
 		
+		//Call setup methods
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
@@ -66,9 +66,12 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupScrollPane()
 	{
+		//Scroll Pane setup
 		chatScrollPane.setViewportView(chatArea);
 		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		
+		//Chat Area setup
 		chatArea.setText("Hello, I am Billbot! What would you like to talk about? \n");
 		chatArea.setToolTipText("Billbot's responses show up here");
 		chatArea.setWrapStyleWord(true);
@@ -92,9 +95,6 @@ public class ChatPanel extends JPanel
 		this.add(chatScrollPane);
 		this.add(inputField);
 		this.add(infoLabel);
-		
-		chatArea.setEnabled(false);
-		chatArea.setEditable(false);
 	}
 
 	/**
@@ -102,23 +102,28 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
+		//Input Field
 		inputField.setToolTipText("Chat here");
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
 		appLayout.putConstraint(SpringLayout.WEST, inputField, 25, SpringLayout.WEST, this);
 		
+		//Chat Button
 		chatButton.setToolTipText("Send chat");
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -33, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, -25, SpringLayout.EAST, this);
 		
+		//Chat Scroll Pane (Chat Area)
 		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatScrollPane, 25, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatScrollPane, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatScrollPane, -6, SpringLayout.NORTH, infoLabel);
 
+		//Checker Button
 		checkerButton.setToolTipText("Check content");
 		appLayout.putConstraint(SpringLayout.NORTH, checkerButton, 6, SpringLayout.SOUTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 10, SpringLayout.WEST, inputField);
 		
+		//Info Label
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -2, SpringLayout.NORTH, inputField);
 		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, checkerButton);
@@ -131,6 +136,7 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupListeners()
 	{
+		//Sends the chat
 		chatButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -143,6 +149,7 @@ public class ChatPanel extends JPanel
 			}
 		});
 
+		//Checks to see if the input is special content
 		checkerButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)

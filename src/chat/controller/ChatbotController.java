@@ -4,6 +4,11 @@ import chat.model.Chatbot;
 import chat.view.PopupDisplay;
 import chat.view.ChatFrame;
 
+/**
+ * 
+ * @author Brandon Reich
+ *
+ */
 public class ChatbotController
 {
 	private PopupDisplay display;
@@ -19,11 +24,20 @@ public class ChatbotController
 		appFrame = new ChatFrame(this);
 	}
 
+	/**
+	 * Start method
+	 */
 	public void start()
 	{
 		display.displayText("Welcome to Chatbot");
 	}
 
+	/**
+	 * Interacts with Billbot.
+	 * Calls the processConversation method from Chatbot and also the quitChecker.
+	 * @param input
+	 * @return
+	 */
 	public String interactWithChatbot(String input)
 	{
 		String chatbotSays = "";
@@ -39,6 +53,12 @@ public class ChatbotController
 		return chatbotSays;
 	}
 
+	/**
+	 * Checks to see if the user has inputed content that will check with one
+	 * of the checkers.
+	 * @param text
+	 * @return A response based upon if a checker is set true
+	 */
 	public String useCheckers(String text)
 	{
 		String response = "";
@@ -81,6 +101,10 @@ public class ChatbotController
 		return response;
 	}
 
+	/**
+	 * Close method.
+	 * Calls a pop up window that says Goodbye.
+	 */
 	private void close()
 	{
 		display.displayText("Goodbye");
@@ -96,6 +120,10 @@ public class ChatbotController
 
 		return chatbotSays;
 	}
+	
+	/**
+	 * Getters and Setters
+	 */
 	
 	public Chatbot getChatbot()
 	{

@@ -8,7 +8,7 @@ import java.lang.String;
 
 /**
  * 
- * @author brei8876
+ * @author Brandon Reich
  *
  */
 public class Chatbot
@@ -27,7 +27,6 @@ public class Chatbot
 
 	/**
 	 * Initializes data members and calls methods
-	 * 
 	 * @param username
 	 */
 	public Chatbot(String username)
@@ -203,7 +202,6 @@ public class Chatbot
 
 	/**
 	 * Builds a response based on the users input and the created Chatbot response.
-	 * 
 	 * @param input
 	 * @return Returns the combined user and chatbot response as a string
 	 */
@@ -220,7 +218,6 @@ public class Chatbot
 
 	/**
 	 * Builds a response using Math.random() and selected arrays of string
-	 * 
 	 * @return The random sentence built by the predefined arrays.
 	 */
 	private String buildChatbotResponse()
@@ -267,7 +264,6 @@ public class Chatbot
 	/**
 	 * Checks to see if the users input is long enough If it is shorter than 2 characters long it
 	 * returns false
-	 * 
 	 * @param input
 	 * @return A boolean value stating if the user input is long enough
 	 */
@@ -326,7 +322,6 @@ public class Chatbot
 	/**
 	 * Checks to see if they have a valid user name The user name must contain @ User name cannot be
 	 * null or contain .com or more than one @
-	 * 
 	 * @param input
 	 * @return A boolean value stating if the User name is valid
 	 */
@@ -344,7 +339,6 @@ public class Chatbot
 
 	/**
 	 * Checks to see if the user input content
-	 * 
 	 * @param contentCheck
 	 * @return A boolean value stating if the content is valid
 	 */
@@ -367,7 +361,6 @@ public class Chatbot
 
 	/**
 	 * Checks to see if the input contains Animal memes
-	 * 
 	 * @param input
 	 * @return A boolean value stating if the input is a valid meme
 	 */
@@ -388,7 +381,6 @@ public class Chatbot
 
 	/**
 	 * Checks to see if the input is in the shopping list
-	 * 
 	 * @param shoppingItem
 	 * @return A  boolean value stating if the shopping item is in the shopping list
 	 */
@@ -410,7 +402,6 @@ public class Chatbot
 
 	/**
 	 * Checks to see if they input a movie title in the movie list
-	 * 
 	 * @param title
 	 * @return A boolean value stating if it is a valid movie title
 	 */
@@ -431,7 +422,6 @@ public class Chatbot
 
 	/**
 	 * Checks to see if they input a correct movie genre
-	 * 
 	 * @param genre
 	 * @return A boolean value stating if it is a valid movie genre
 	 */
@@ -450,9 +440,8 @@ public class Chatbot
 	/**
 	 * Checks to see if the user is ready to quit Will only quit if the String EQUALS.ignoreCase "quit"
 	 * Other than that it will continue.
-	 * 
 	 * @param exitString
-	 * @return A boolean value stating if the exitString is a vaild quit
+	 * @return A boolean value stating if the exitString is a valid quit
 	 */
 	public boolean quitChecker(String exitString)
 	{
@@ -469,7 +458,6 @@ public class Chatbot
 
 	/**
 	 * Tests to see if the user slams the keyboard
-	 * 
 	 * @param sample
 	 * @return A boolean value stating if the sample is a keyboard mash
 	 */
