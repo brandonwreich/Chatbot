@@ -54,7 +54,6 @@ public class ChatPanel extends JPanel
 		inputField = new JTextField(20);
 		infoLabel = new JLabel("Type to chat with the chatbot");
 		appLayout = new SpringLayout();
-		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 25, SpringLayout.WEST, this);
 		chatScrollPane = new JScrollPane();
 		checkerButton = new JButton("Check me");
 		numberButton = new JButton("Random Number");
@@ -87,6 +86,8 @@ public class ChatPanel extends JPanel
 		chatArea.setBackground(Color.WHITE);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
+		
+		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 25, SpringLayout.WEST, this);
 	}
 
 	/**
