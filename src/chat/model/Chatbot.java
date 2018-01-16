@@ -327,6 +327,18 @@ public class Chatbot
 			containsHTML = false;
 		}
 		
+		if (input.toUpperCase().contains("HREF"))
+		{
+			if (input.toUpperCase().contains("HREF=") || input.toUpperCase().contains("HREF ="))
+			{
+				containsHTML = true;
+			}
+			else
+			{
+				containsHTML = false;
+			}
+		}
+		
 		return containsHTML;
 	}
 
