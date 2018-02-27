@@ -10,7 +10,42 @@ public class IoController
 {
 	public static void saveToFile(ChatbotController app, String textToSave, String path)
 	{
-
+		String savePath;
+		Calendar time = Calendar.getInstance();
+		
+		if (path.indexOf(".txt") == -1)
+		{
+			savePath = "saved text " + time.get(Calendar.HOUR_OF_DAY) + " - " + time.get(Calendar.MINUTE) + ".txt";
+			System.out.println(savePath);
+		}
+		else
+		{
+			savePath = path;
+		}
+		
+		try
+		{
+			File textFile = new File(savePath);
+			PrintWriter fileWriter = new PrintWriter(textFile);
+			Scanner textScanner = new Scanner(textToSave);
+			String currentLine = "";
+			
+			while (textScanner.hasNext()) 
+			{
+				currentLine = textScanner.nextLine();
+				fileWriter.println(currentLine);
+			}
+			textScanner.close();
+			fileWriter.close();
+		}
+		catch (IOException error)
+		{
+			app.handleErrors(error);
+		}
+		catch (Exception error)
+		{
+			app.handleErrors(error);a
+		}
 	}
 
 	public static String loadFromFile(ChatbotController app, String filename)
@@ -20,7 +55,7 @@ public class IoController
 		try
 		{
 			// Opens at root level of project
-			// AKA in the Chabot folder
+			// AKA in the Chatbot folder
 
 			File openFile = new File(filename);
 			Scanner fileScanner = new Scanner(openFile);
