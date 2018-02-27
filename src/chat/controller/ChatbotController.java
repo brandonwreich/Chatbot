@@ -34,6 +34,7 @@ public class ChatbotController
 	public void start()
 	{
 		display.displayText("Welcome to Chatbot");
+		IoController.loadFromFile(this, "commonWords.txt");
 	}
 
 	/**

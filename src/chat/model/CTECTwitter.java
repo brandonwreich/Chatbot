@@ -1,7 +1,9 @@
 package chat.model;
 
 import chat.controller.ChatbotController;
-import twitter4j.*;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 
 public class CTECTwitter
 {
