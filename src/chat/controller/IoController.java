@@ -44,7 +44,7 @@ public class IoController
 		}
 		catch (Exception error)
 		{
-			app.handleErrors(error);a
+			app.handleErrors(error);
 		}
 	}
 

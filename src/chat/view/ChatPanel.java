@@ -50,18 +50,15 @@ public class ChatPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		appLayout = new SpringLayout();
 
 		// Initialize GUI data members
 		chatButton = new JButton("chat", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/chat.png")));
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, -10, SpringLayout.EAST, this);
 		searchButton = new JButton("seach", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/search.png")));
+		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 6, SpringLayout.SOUTH, searchButton);
+		appLayout.putConstraint(SpringLayout.WEST, searchButton, 0, SpringLayout.WEST, chatButton);
 		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/save.png")));
-		saveButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				
-			}
-		});
 		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/load.png")));
 		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/tweet.png")));
 		inputField = new JTextField(20);
@@ -70,9 +67,10 @@ public class ChatPanel extends JPanel
 		checkerButton = new JButton("Check me");
 		numberButton = new JButton("Random Number");
 
+
 		// Call setup methods
-		setupScrollPane();
 		setupPanel();
+		setupScrollPane();
 		setupLayout();
 		setupListeners();
 	}
@@ -116,6 +114,7 @@ public class ChatPanel extends JPanel
 		this.add(numberButton);
 		chatArea = new JTextArea(10, 25);
 
+
 		add(chatArea);
 	}
 
@@ -136,23 +135,21 @@ public class ChatPanel extends JPanel
 		// Random Number Button
 		numberButton.setToolTipText("Generate a random number");
 		
-		appLayout = new SpringLayout();
-		appLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, chatButton);
-		appLayout.putConstraint(SpringLayout.WEST, inputField, 52, SpringLayout.WEST, this);
+		// Constraints
 		appLayout.putConstraint(SpringLayout.EAST, tweetButton, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.EAST, loadButton, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.EAST, saveButton, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.EAST, searchButton, -10, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 6, SpringLayout.SOUTH, searchButton);
-		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, searchButton);
 		appLayout.putConstraint(SpringLayout.NORTH, searchButton, 6, SpringLayout.SOUTH, saveButton);
 		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 6, SpringLayout.SOUTH, loadButton);
 		appLayout.putConstraint(SpringLayout.NORTH, loadButton, 6, SpringLayout.SOUTH, tweetButton);
 		appLayout.putConstraint(SpringLayout.NORTH, tweetButton, 10, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 15, SpringLayout.NORTH, tweetButton);
-		appLayout.putConstraint(SpringLayout.EAST, chatArea, -24, SpringLayout.WEST, searchButton);
-		appLayout.putConstraint(SpringLayout.NORTH, numberButton, 6, SpringLayout.SOUTH, inputField);
-		appLayout.putConstraint(SpringLayout.EAST, numberButton, -96, SpringLayout.WEST, chatButton);
+		appLayout.putConstraint(SpringLayout.NORTH, numberButton, 25, SpringLayout.SOUTH, inputField);
+		appLayout.putConstraint(SpringLayout.WEST, numberButton, 83, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, inputField, 35, SpringLayout.SOUTH, chatArea);
+		appLayout.putConstraint(SpringLayout.EAST, inputField, 0, SpringLayout.EAST, chatArea);
+		appLayout.putConstraint(SpringLayout.WEST, chatArea, 38, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatArea, 0, SpringLayout.SOUTH, saveButton);
 	}
 
 	/**
