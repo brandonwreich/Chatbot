@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class IoController
+public class IOController
 {
 	public static void saveToFile(ChatbotController app, String textToSave, String path)
 	{

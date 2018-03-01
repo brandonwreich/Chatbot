@@ -34,8 +34,8 @@ public class ChatbotController
 	public void start()
 	{
 		display.displayText("Welcome to Chatbot");
-		String results = IoController.loadFromFile(this, "commonWords.txt");
-		IoController.saveToFile(this, results, "readText.txt");
+		String results = IOController.loadFromFile(this, "commonWords.txt");
+		IOController.saveToFile(this, results, "readText.txt");
 	}
 
 	/**

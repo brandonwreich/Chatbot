@@ -54,10 +54,7 @@ public class ChatPanel extends JPanel
 
 		// Initialize GUI data members
 		chatButton = new JButton("chat", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/chat.png")));
-		appLayout.putConstraint(SpringLayout.EAST, chatButton, -10, SpringLayout.EAST, this);
 		searchButton = new JButton("seach", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/search.png")));
-		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 6, SpringLayout.SOUTH, searchButton);
-		appLayout.putConstraint(SpringLayout.WEST, searchButton, 0, SpringLayout.WEST, chatButton);
 		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/save.png")));
 		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/load.png")));
 		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/chat.view.images/tweet.png")));
@@ -150,6 +147,9 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, inputField, 0, SpringLayout.EAST, chatArea);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, 38, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatArea, 0, SpringLayout.SOUTH, saveButton);
+		appLayout.putConstraint(SpringLayout.NORTH, chatButton, 6, SpringLayout.SOUTH, searchButton);
+		appLayout.putConstraint(SpringLayout.WEST, searchButton, 0, SpringLayout.WEST, chatButton);
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, -10, SpringLayout.EAST, this);
 	}
 
 	/**
@@ -174,7 +174,9 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-
+				String usernameToSeach = inputField.getText();
+				
+				chatArea.setText(appController.search(usernameToSeach));
 			}
 		});
 
