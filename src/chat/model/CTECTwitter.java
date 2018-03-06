@@ -55,6 +55,7 @@ public class CTECTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
+		trimTheBoringWords(boring);
 		
 		return mostCommon;
 	}
@@ -68,7 +69,7 @@ public class CTECTwitter
 				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
 				{
 					tweetedWords.remove(index);
-					boringIndex = Integer.MAX_VALUE;
+					boringIndex = boringWords.length;
 				}
 			}
 		}
