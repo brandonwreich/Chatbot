@@ -20,7 +20,7 @@ public class CTECTwitter
 	private Twitter chatbotTwitter;
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
-	private 
+	private long totalWordCount;
 
 	public CTECTwitter(ChatbotController appController)
 	{
@@ -54,6 +54,7 @@ public class CTECTwitter
 		collectTweets(username);
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
+		String [] boring = createIgnoredWordArray();
 		
 		return mostCommon;
 	}
@@ -88,6 +89,7 @@ public class CTECTwitter
 			{
 				appController.handleErrors(searchTweetError);
 			}
+			page++;
 		}
 	}
 	

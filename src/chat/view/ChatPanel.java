@@ -200,7 +200,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-
+				appController.tweet(inputField.getText());
+				inputField.setText("");
 			}
 		});
 
@@ -212,7 +213,6 @@ public class ChatPanel extends JPanel
 				String userText = inputField.getText();
 				String displayText = appController.useCheckers(userText);
 				chatArea.append(displayText);
-				;
 				inputField.setText("");
 			}
 		});
