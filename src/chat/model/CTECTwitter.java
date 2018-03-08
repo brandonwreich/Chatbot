@@ -1,6 +1,7 @@
 package chat.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class CTECTwitter
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
 	private long totalWordCount;
+	private HashMap<String, Integer> wordsAndCount;
 
 	public CTECTwitter(ChatbotController appController)
 	{
@@ -29,6 +31,7 @@ public class CTECTwitter
 		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
 		this.totalWordCount = 0;
+		this.wordsAndCount = new HashMap<String, Integer>();
 	}
 
 	public void sendTweet(String textToTweet)
@@ -50,38 +53,25 @@ public class CTECTwitter
 	public String getMostCommonWord(String username)
 	{
 		String mostCommon = "";
-		
+
 		collectTweets(username);
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
-		String [] boring = createIgnoredWordArray();
+		String[] boring = createIgnoredWordArray();
 		trimTheBoringWords(boring);
-		
+		removeBlanks();
+		generateWordCount();
+
 		return mostCommon;
 	}
 
-	private void trimTheBoringWords(String [] boringWords)
-	{
-		for (int index = tweetedWords.size() - 1; index >= 0; index --)
-		{
-			for (int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
-			{
-				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
-				{
-					tweetedWords.remove(index);
-					boringIndex = boringWords.length;
-				}
-			}
-		}
-	}
-	
 	private void collectTweets(String username)
 	{
 		searchedTweets.clear();
 		tweetedWords.clear();
 
 		Paging statusPage = new Paging(1, 100);
-		
+
 		int page = 1;
 		long lastID = Long.MAX_VALUE;
 
@@ -108,27 +98,27 @@ public class CTECTwitter
 			page++;
 		}
 	}
-	
+
 	private void turnStatusesToWords()
 	{
 		for (Status currentStatus : searchedTweets)
 		{
 			String tweetText = currentStatus.getText();
-			String [] tweetWords = tweetText.split(" ");
-			
+			String[] tweetWords = tweetText.split(" ");
+
 			for (int index = 0; index < tweetWords.length; index++)
 			{
 				tweetedWords.add(removePunctuation(tweetWords[index]).trim());
 			}
 		}
 	}
-	
+
 	private String removePunctuation(String currentString)
 	{
 		String punctuation = ".,'?!:;\"(){}[]^<>-";
-		
+
 		String scrubbedString = "";
-		
+
 		for (int i = 0; i < currentString.length(); i++)
 		{
 			if (punctuation.indexOf(currentString.charAt(i)) == -1)
@@ -136,39 +126,80 @@ public class CTECTwitter
 				scrubbedString += currentString.charAt(i);
 			}
 		}
-		
+
 		return scrubbedString;
 	}
-	
-	private String [] createIgnoredWordArray()
+
+	private String[] createIgnoredWordArray()
 	{
-		String [] boringWords;
+		String[] boringWords;
 		String fileText = IOController.loadFromFile(appController, "commonWords.txt");
 		int wordCount = 0;
-		
+
 		Scanner wordScanner = new Scanner(fileText);
-		
-		while (wordScanner.hasNextLine()) 
+
+		while (wordScanner.hasNextLine())
 		{
 			wordScanner.nextLine();
 			wordCount++;
 		}
-		
-		boringWords = new String [wordCount];
+
+		boringWords = new String[wordCount];
 		wordScanner.close();
-		
+
 		// Alternative file loading method
 		// Uses the InputStream class
 		// Notice the lack of try/catch
-		
+
 		wordScanner = new Scanner(this.getClass().getResourceAsStream("data/commonWords.txt"));
-		
+
 		for (int index = 0; index < boringWords.length; index++)
 		{
 			boringWords[index] = wordScanner.nextLine();
 		}
-		
+
 		wordScanner.close();
 		return boringWords;
+	}
+
+	private void trimTheBoringWords(String[] boringWords)
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for (int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
+			{
+				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
+				{
+					tweetedWords.remove(index);
+					boringIndex = boringWords.length;
+				}
+			}
+		}
+	}
+
+	private void removeBlanks()
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			if (tweetedWords.get(index).trim().length() == 0)
+			{
+				tweetedWords.remove(index);
+			}
+		}
+	}
+
+	private void generateWordCount()
+	{
+		for (String word : tweetedWords)
+		{
+			if (!wordsAndCount.containsKey(word.toLowerCase()))
+			{
+				wordsAndCount.put(word.toLowerCase(), 1);
+			}
+			else
+			{
+				wordsAndCount.replace(word.toLowerCase(), wordsAndCount.get(word.toLowerCase()) + 1);
+			}
+		}
 	}
 }
