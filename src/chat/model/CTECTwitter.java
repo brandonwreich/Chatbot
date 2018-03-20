@@ -1,14 +1,20 @@
 package chat.model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import chat.controller.ChatbotController;
 import chat.controller.IOController;
-
+import twitter4j.GeoLocation;
 import twitter4j.Paging;
+import twitter4j.Query;
+import twitter4j.QueryResult;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -62,7 +68,60 @@ public class CTECTwitter
 		removeBlanks();
 		generateWordCount();
 
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();
+		
+		String mostCommonWord = sorted.get(0).getKey();
+		int maxWord = 0;
+
+		Hashtable<String, Integer> topOne = wordsAndCount.entrySet().stream().sorted(Map.Entry.comparingByValue()).limit(1)
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, Hashtable::new));
+
+		String mostCommonWord = topOne.keys().nextElement();
+		maxWord = topOne.get(mostCommonWord);
+
+		mostCommon = "The most common word in " + username + "'s " + searchedTweets.size() + " tweets is " + mostCommonWord + ", and it was used " + maxWord + " times. \nThis is "
+				+ (DecimalFormat.getPercentInstance().format(((double) maxWord) / totalWordCount)) + " of total words: " + totalWordCount + " and is "
+				+ (DecimalFormat.getPercentInstance().format(((double) maxWord / wordsAndCount.size()))) + " of the unique words: " + wordsAndCount.size();
+
+		mostCommon += "/n/n" + sortedWords();
+
 		return mostCommon;
+	}
+
+	public String sortedWords()
+	{
+		String allWords = "";
+		String[] words = new String[wordsAndCount.size()];
+		ArrayList<String> wordList = new ArrayList<String>(wordsAndCount.keySet());
+
+		for (int index = 0; index < wordsAndCount.size(); index++)
+		{
+			words[index] = wordList.get(index);
+		}
+
+		for (int index = 0; index < words.length - 1; index++)
+		{
+			int maxIndex = index;
+
+			for (int inner = index + 1; inner < words.length; inner++)
+			{
+				if (words[inner].compareTo(words[maxIndex]) > 0)
+				{
+					maxIndex = inner;
+				}
+			}
+
+			String tempMax = words[maxIndex];
+			words[maxIndex] = words[index];
+			words[index] = tempMax;
+		}
+
+		for (String word : words)
+		{
+			allWords += word + ", ";
+		}
+
+		return allWords;
 	}
 
 	private void collectTweets(String username)
@@ -203,4 +262,48 @@ public class CTECTwitter
 			}
 		}
 	}
+
+	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
+	{
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+		entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+		return entries;
+	}
+
+	public String analyzeTwitterForTopic(String topic)
+	{
+		String results = "";
+		searchedTweets.clear();
+		Query twitterQuery = new Query(topic);
+		int resultMax = 750;
+		long lastId = Long.MAX_VALUE;
+		
+		twitterQuery.setGeoCode(new GeoLocation(40.003077, -102.051743), 2000, Query.MILES);
+		ArrayList<Status> matchingTweets = new ArrayList<Status>();
+		
+		while (searchedTweets.size() < resultMax)
+		{
+			try
+			{
+				QueryResult resultingTweets = chatbotTwitter.search(twitterQuery);
+			}
+			catch (TwitterException error)
+			{
+				appController.handleErrors(error);
+			}
+
+			twitterQuery.setMaxId(lastId - 1);
+		}
+
+		results += "Talk about the search results here";
+		results += "Find a tweet that will pass one of the checker in chatbot";
+
+		int randomTweet = (int) (Math.random() * matchingTweets.size());
+		results += matchingTweets.get(randomTweet);
+
+		return results;
+
+	}
+
 }
