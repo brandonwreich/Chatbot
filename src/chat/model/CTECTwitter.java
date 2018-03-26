@@ -278,8 +278,11 @@ public class CTECTwitter
 		Query twitterQuery = new Query(topic);
 		int resultMax = 750;
 		long lastId = Long.MAX_VALUE;
+		double latitude = 40.003077;
+		double longitude = -102.051743;
+		double radius = 2000;
 		
-		twitterQuery.setGeoCode(new GeoLocation(40.003077, -102.051743), 2000, Query.MILES);
+		twitterQuery.setGeoCode(new GeoLocation(latitude, longitude), radius, Query.MILES);
 		ArrayList<Status> matchingTweets = new ArrayList<Status>();
 		
 		while (searchedTweets.size() < resultMax)
@@ -287,6 +290,15 @@ public class CTECTwitter
 			try
 			{
 				QueryResult resultingTweets = chatbotTwitter.search(twitterQuery);
+				
+				for (Status currentTweet : resultingTweets.getTweets())
+				{
+					if (currentTweet.getId() < lastId)
+					{
+						matchingTweets.add(currentTweet);
+						lastId = currentTweet.getId();
+					}
+				}
 			}
 			catch (TwitterException error)
 			{
